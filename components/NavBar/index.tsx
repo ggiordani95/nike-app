@@ -1,5 +1,5 @@
 import { GlobalHeaderText } from '../../app/globalStyles'
-import { NavBarContainer, PressableTheme, Rounded } from './styles';
+import { NavBarContainer, PressableTheme, RoundedToggle } from './styles';
 import { Image } from 'expo-image';
 import { INavBar } from './types';
 import logoBlack from '../../assets/nikeblack.png'
@@ -21,23 +21,22 @@ export default function index({...props}: INavBar) {
 
   const handleTheme = useThemeStore(state => state.handleColor);
 
-  const translateXValue = useSharedValue(-10);
+  const translateXValue = useSharedValue(0);
 
   const animatedStyle = useAnimatedStyle(() => {
     if(isThemeDark){
       return {
-        
-        transform: [{ translateX: withSpring(-(translateXValue.value / 2)) }],
+        transform: [{ translateX: withSpring(-(translateXValue.value / 2  - 52)) }],
       };
     }else{
       return {
-        transform: [{ translateX: withSpring(translateXValue.value) }],
+        transform: [{ translateX: withSpring(translateXValue.value - 38) }],
       };
     }
   });
 
   const translating = () => {
-    translateXValue.value = withTiming(20, { duration: 500 });
+    translateXValue.value = withTiming(40, { duration: 500 });
   };
 
   function ChangingColorTheme(){
@@ -54,7 +53,7 @@ export default function index({...props}: INavBar) {
             <GlobalHeaderText style={{fontWeight: 'bold'}}>Gustavo</GlobalHeaderText>
           </View>
             <PressableTheme onPress={() => ChangingColorTheme()}>
-              <Rounded style={animatedStyle}/>
+              <RoundedToggle style={[animatedStyle]}/>
             </PressableTheme>
         </View>
         <Image transition={200} source={props.light ? logoBlack : logoWhite} style={{width: 50, height: 35}}/>
