@@ -18,5 +18,6 @@ export default {
         LARGE: '24px',
         EXTRALARGE: '32px',
         XXL: '46px',
+        SIXTY: '60px',
     }
 }

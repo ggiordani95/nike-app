@@ -4,7 +4,7 @@ export const GlobalContainer = styled.View`
   flex: 1;
   background-color: ${({theme}) => theme.COLORS.BACKGROUND};
   padding: ${({theme}) => theme.PIXELS.LARGE};
-  padding-top: ${({theme}) => theme.PIXELS.XXL};
+  padding-top: ${({theme}) => theme.PIXELS.SIXTY};
 `;
 
 export const GlobalHeaderText = styled.Text`
