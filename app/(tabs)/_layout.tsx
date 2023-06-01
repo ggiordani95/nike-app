@@ -26,11 +26,9 @@ export default function Layout() {
             backgroundColor: isThemeDark ? '#222222' : '#b9b9b9',
             borderTopWidth: 0,
           },
-          
         })}
-        
     >
-      
+      <Tabs.Screen name="cart"/>
 
     </Tabs>
   )

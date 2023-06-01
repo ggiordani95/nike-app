@@ -7,6 +7,7 @@ import NavBar from "../../components/NavBar";
 import { useEffect, useState } from "react";
 import SearchBar from "../../components/SearchBar";
 import useThemeStore from "../../stores/theme";
+import { Link } from "expo-router";
 
 export default function Dashboard() {
   const { width, height } = useWindowDimensions();
@@ -22,6 +23,7 @@ export default function Dashboard() {
       <GlobalContainer>
         <NavBar light={theme ? false : true}/>
         <SearchBar/>
+        <Link href="/cart">Clica Aqui</Link>
       </GlobalContainer>
     </ThemeProvider>
   );
