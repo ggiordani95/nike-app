@@ -1,5 +1,5 @@
-import { GlobalHeaderText } from '../../app/globalStyles'
-import { NavBarContainer, PressableTheme, RoundedToggle } from './styles';
+import { CenteredRowView, GlobalHeaderText } from '../../app/globalStyles'
+import { NavBarContainer, PressableTheme, ProfileImage, RoundedToggle } from './styles';
 import { Image } from 'expo-image';
 import { INavBar } from './types';
 import logoBlack from '../../assets/nikeblack.png'
@@ -47,7 +47,8 @@ export default function index({...props}: INavBar) {
 
   return (
     <NavBarContainer>
-        <View style={{flexDirection:'row'}}>
+        <CenteredRowView>
+          <Image source={{uri: 'https://github.com/ggiordani95.png'}} style={{width: 40, height:40, borderRadius: 20, marginRight: 14}}/>
           <View>
             <GlobalHeaderText>Bem vindo,</GlobalHeaderText>
             <GlobalHeaderText style={{fontWeight: 'bold'}}>Gustavo</GlobalHeaderText>
@@ -55,7 +56,7 @@ export default function index({...props}: INavBar) {
             <PressableTheme onPress={() => ChangingColorTheme()}>
               <RoundedToggle style={[animatedStyle]}/>
             </PressableTheme>
-        </View>
+        </CenteredRowView>
         <Image transition={200} source={props.light ? logoBlack : logoWhite} style={{width: 50, height: 35}}/>
     </NavBarContainer>
   )

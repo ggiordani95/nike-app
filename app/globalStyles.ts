@@ -19,3 +19,14 @@ export const GlobalSmallTextSecondary = styled.Text`
   font-weight: 600;
  
 `
+export const CenteredView = styled.View`
+  justify-content: center;
+  align-items: center;
+`
+
+export const CenteredRowView = styled.View`
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+`
+

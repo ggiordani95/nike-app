@@ -25,3 +25,8 @@ export const RoundedToggle = styled(Animated.View)`
     background: ${({theme}) => theme.COLORS.TEXT_PRIMARY};
     opacity: 0.6;
 `
+export const ProfileImage = styled.Image`
+    height: 40px;
+    width: 40px;
+    border-radius:20px;
+`
