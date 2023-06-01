@@ -8,12 +8,12 @@ export const SearchInput = styled.TextInput.attrs((props) => ({
     background-color: ${({theme}) => theme.COLORS.PRIMARY_900};
     border-radius: ${({theme}) => theme.PIXELS.LARGE};
     margin-top: 20px;
-    padding-left: 42px;
+    padding-left: 20px;
 `
-export const StyledIcon = styled(Ionicons)`
+export const StyledIconRight = styled(Ionicons)`
     color: ${({theme}) => theme.COLORS.TEXT_PRIMARY};
     position: absolute; 
     top:34px;
-    left: 18px;
+    right: 18px;
     z-index:2;
 `

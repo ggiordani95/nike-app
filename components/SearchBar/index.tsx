@@ -1,6 +1,5 @@
-import { SearchInput, StyledIcon } from "./styles";
+import { SearchInput, StyledIconRight } from "./styles";
 import { GlobalSmallTextSecondary } from '../../app/globalStyles'
-
 import { useState } from "react";
 import { View } from "react-native";
 
@@ -10,12 +9,8 @@ export default function index() {
 
   return (
     <View style={{position:'relative'}}>
-    {isInputBlur && 
-        <>
-        <StyledIcon size={18} name="search"/>
-        </> 
-    }
-        <SearchInput placeholder={isInputBlur ? 'Pesquisar...' : ''} onFocus={() => setIsInputBlur(false)} onBlur={() => setIsInputBlur(true)} />
+        {isInputBlur && <StyledIconRight size={16} name="search"/>}
+        <SearchInput placeholder={isInputBlur ? 'Digite o nome de um produto...' : ''} onFocus={() => setIsInputBlur(false)} onBlur={() => setIsInputBlur(true)} />
     </View>
   )
 }

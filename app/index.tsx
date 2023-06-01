@@ -12,19 +12,16 @@ export default function Page() {
   const { width, height } = useWindowDimensions();
   const [isThemeDark, setIsThemeDark] = useState<boolean>(true);
   const theme = useThemeStore(state => state.isDarkMode);
-  const handleTheme = useThemeStore(state => state.handleColor);
 
-  function ChangingColorTheme(){
-    handleTheme(!isThemeDark)
+  useEffect(()=>{
     setIsThemeDark(!isThemeDark)
-  }
+  },[theme])
 
   return (
     <ThemeProvider theme={theme ? dark : light}>
       <GlobalContainer>
         <NavBar light={theme ? false : true}/>
         <SearchBar/>
-        <Pressable style={{width:100,height: 100, backgroundColor:'red'}} onPress={() => ChangingColorTheme()}/>
       </GlobalContainer>
     </ThemeProvider>
   );
