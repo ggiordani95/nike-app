@@ -16,32 +16,29 @@ import Animated, {
 
 
 export default function index({...props}: INavBar) {
-
   
   const [isThemeDark, setIsThemeDark] = useState<boolean>(true);
 
   const handleTheme = useThemeStore(state => state.handleColor);
 
-  const translateXValue = useSharedValue(0);
+  const translateXValue = useSharedValue(-10);
 
   const animatedStyle = useAnimatedStyle(() => {
     if(isThemeDark){
       return {
-        transform: [{ translateX: withSpring(translateXValue.value) }],
+        
+        transform: [{ translateX: withSpring(-(translateXValue.value / 2)) }],
       };
     }else{
       return {
-        transform: [{ translateX: withSpring(-translateXValue.value) }],
+        transform: [{ translateX: withSpring(translateXValue.value) }],
       };
     }
-    
   });
 
   const translating = () => {
     translateXValue.value = withTiming(20, { duration: 500 });
   };
- 
-  
 
   function ChangingColorTheme(){
     handleTheme(!isThemeDark)
@@ -57,11 +54,9 @@ export default function index({...props}: INavBar) {
             <GlobalHeaderText style={{fontWeight: 'bold'}}>Gustavo</GlobalHeaderText>
           </View>
             <PressableTheme onPress={() => ChangingColorTheme()}>
-              <Rounded/>
+              <Rounded style={animatedStyle}/>
             </PressableTheme>
-            <Animated.View style={[animatedStyle,{height:20,width:20,backgroundColor:'red'}]}/>
         </View>
-
         <Image transition={200} source={props.light ? logoBlack : logoWhite} style={{width: 50, height: 35}}/>
     </NavBarContainer>
   )
