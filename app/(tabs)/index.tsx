@@ -23,7 +23,8 @@ export default function Dashboard() {
       <GlobalContainer>
         <NavBar light={theme ? false : true}/>
         <SearchBar/>
-        <Link href="/cart">Clica Aqui</Link>
+      
+        
       </GlobalContainer>
     </ThemeProvider>
   );
