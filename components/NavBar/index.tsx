@@ -21,22 +21,22 @@ export default function index({...props}: INavBar) {
 
   const handleTheme = useThemeStore(state => state.handleColor);
 
-  const translateXValue = useSharedValue(0);
+  const translateXValue = useSharedValue(20);
 
   const animatedStyle = useAnimatedStyle(() => {
     if(isThemeDark){
       return {
-        transform: [{ translateX: withSpring(-(translateXValue.value / 2  - 52)) }],
+        transform: [{ translateX: withSpring(-(translateXValue.value)) }],
       };
     }else{
       return {
-        transform: [{ translateX: withSpring(translateXValue.value - 38) }],
+        transform: [{ translateX: withSpring(translateXValue.value / 2)}],
       };
     }
   });
 
   const translating = () => {
-    translateXValue.value = withTiming(40, { duration: 500 });
+    translateXValue.value = withTiming(20, { duration: 500 });
   };
 
   function ChangingColorTheme(){

@@ -20,6 +20,7 @@ export const RoundedToggle = styled(Animated.View)`
     width: 40px;
     border-radius: 24px;
     position: absolute;
+    left: 22px;
     z-index: 3;
     background: ${({theme}) => theme.COLORS.TEXT_PRIMARY};
     opacity: 0.6;
