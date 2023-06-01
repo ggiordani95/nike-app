@@ -11,34 +11,42 @@ import Animated, {
   withSpring,
   useAnimatedStyle,
   useSharedValue,
+  withTiming,
 } from 'react-native-reanimated';
 
 
 export default function index({...props}: INavBar) {
 
-  const offset = useSharedValue(100);
-
-  const customSpringStyles = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          translateX: withSpring(offset.value * 30, {
-            damping: 20,
-            stiffness: 90,
-          }),
-        },
-      ],
-    };
-  });
-
+  
   const [isThemeDark, setIsThemeDark] = useState<boolean>(true);
 
   const handleTheme = useThemeStore(state => state.handleColor);
 
+  const translateXValue = useSharedValue(0);
+
+  const animatedStyle = useAnimatedStyle(() => {
+    if(isThemeDark){
+      return {
+        transform: [{ translateX: withSpring(translateXValue.value) }],
+      };
+    }else{
+      return {
+        transform: [{ translateX: withSpring(-translateXValue.value) }],
+      };
+    }
+    
+  });
+
+  const translating = () => {
+    translateXValue.value = withTiming(20, { duration: 500 });
+  };
+ 
+  
+
   function ChangingColorTheme(){
     handleTheme(!isThemeDark)
     setIsThemeDark(!isThemeDark)
-    offset.value = Math.random();
+    translating();
   }
 
   return (
@@ -51,7 +59,7 @@ export default function index({...props}: INavBar) {
             <PressableTheme onPress={() => ChangingColorTheme()}>
               <Rounded/>
             </PressableTheme>
-            <Animated.View style={[customSpringStyles,{height:20,width:20,backgroundColor:'red'}]}/>
+            <Animated.View style={[animatedStyle,{height:20,width:20,backgroundColor:'red'}]}/>
         </View>
 
         <Image transition={200} source={props.light ? logoBlack : logoWhite} style={{width: 50, height: 35}}/>
