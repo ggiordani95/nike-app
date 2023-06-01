@@ -1,27 +1,11 @@
-import { Tabs } from 'expo-router'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Stack } from 'expo-router'
 
 export default function Layout() {
-  return (
-    <Tabs 
-        screenOptions={({route}) => ({
-          tabBarIcon: ({focused, size}) => {
-            return <Icon name={'home'} size={32} color={focused ? 'white' : 'grey'} />;
-          },
-          headerShown: false,
-          tabBarLabel: "Dashboard",
-          tabBarShowLabel: false,
-          tabBarStyle: {
-            backgroundColor: '#222222',
-            borderTopWidth: 0,
-          },
-        
-        })}
-        
-    >
-      
 
-    </Tabs>
+  return (
+    <Stack screenOptions={{headerShown: false}}>
+      <Stack.Screen name="(tabs)" />
+    </Stack>
   )
 }
 
