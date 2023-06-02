@@ -22,9 +22,7 @@ export default function Dashboard() {
     <ThemeProvider theme={theme ? dark : light}>
       <GlobalContainer>
         <NavBar light={theme ? false : true}/>
-        <SearchBar/>
-      
-        
+        <SearchBar/> 
       </GlobalContainer>
     </ThemeProvider>
   );

@@ -1,5 +1,5 @@
-import { CenteredRowView, GlobalHeaderText } from '../../app/globalStyles'
-import { NavBarContainer, PressableTheme, ProfileImage, RoundedToggle } from './styles';
+import { CenteredRowView, GlobalHeaderText, GlobalPadding } from '../../app/globalStyles'
+import { NavBarContainer, PressableTheme, ProfileImage, RoundedToggle, RowBetween } from './styles';
 import { Image } from 'expo-image';
 import { INavBar } from './types';
 import logoBlack from '../../assets/nikeblack.png'
@@ -21,7 +21,7 @@ export default function index({...props}: INavBar) {
 
   const handleTheme = useThemeStore(state => state.handleColor);
 
-  const translateXValue = useSharedValue(20);
+  const translateXValue = useSharedValue(15);
 
   const animatedStyle = useAnimatedStyle(() => {
     if(isThemeDark){
@@ -36,7 +36,7 @@ export default function index({...props}: INavBar) {
   });
 
   const translating = () => {
-    translateXValue.value = withTiming(20, { duration: 500 });
+    translateXValue.value = withTiming(15, { duration: 500 });
   };
 
   function ChangingColorTheme(){
@@ -47,17 +47,19 @@ export default function index({...props}: INavBar) {
 
   return (
     <NavBarContainer>
-        <CenteredRowView>
-          <Image source={{uri: 'https://github.com/ggiordani95.png'}} style={{width: 40, height:40, borderRadius: 20, marginRight: 14}}/>
-          <View>
-            <GlobalHeaderText>Bem vindo,</GlobalHeaderText>
-            <GlobalHeaderText style={{fontWeight: 'bold'}}>Gustavo</GlobalHeaderText>
-          </View>
-            <PressableTheme onPress={() => ChangingColorTheme()}>
-              <RoundedToggle style={[animatedStyle]}/>
-            </PressableTheme>
-        </CenteredRowView>
-        <Image transition={200} source={props.light ? logoBlack : logoWhite} style={{width: 50, height: 35}}/>
+        <RowBetween>
+          <CenteredRowView>
+            <Image source={{uri: 'https://github.com/ggiordani95.png'}} style={{width: 42, height:42, borderRadius: 21, marginRight: 14}}/>
+            <View>
+              <GlobalHeaderText>Bem vindo,</GlobalHeaderText>
+              <GlobalHeaderText style={{fontWeight: 'bold'}}>Gustavo</GlobalHeaderText>
+            </View>
+              <PressableTheme onPress={() => ChangingColorTheme()}>
+                <RoundedToggle style={[animatedStyle]}/>
+              </PressableTheme>
+          </CenteredRowView>
+          <Image transition={200} source={props.light ? logoBlack : logoWhite} style={{width: 50, height: 35}}/>
+        </RowBetween>
     </NavBarContainer>
   )
 }

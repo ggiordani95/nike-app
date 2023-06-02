@@ -27,7 +27,7 @@ export default function Layout() {
               iconName = 'shopping',
               iconSize = 28;
             }
-            return <Icon name={iconName} size={iconSize} color={isThemeDark ? (focused ? 'white' : 'grey') : (focused ? '#323232' : 'grey')} />;
+            return <Icon name={iconName} style={{zIndex: 3, height: 60, marginTop: 50}}size={iconSize} color={isThemeDark ? (focused ? 'white' : 'grey') : (focused ? '#323232' : 'grey')} />;
           },
           headerShown: false,
           tabBarLabel: 
@@ -38,8 +38,17 @@ export default function Layout() {
           "Dashboard",
           tabBarShowLabel: false,
           tabBarStyle: {
+            paddingBottom: 20,
             backgroundColor: isThemeDark ? '#222222' : '#b9b9b9',
             borderTopWidth: 0,
+            borderRadius: 60,
+            height: 70,
+            width: '60%',
+            elevation: 0,
+            position:'absolute',
+            bottom: 60,
+            left: '20%',
+            right: '20%',
            
           },
         })}

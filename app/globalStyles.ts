@@ -3,8 +3,6 @@ import styled from 'styled-components/native'
 export const GlobalContainer = styled.View`
   flex: 1;
   background-color: ${({theme}) => theme.COLORS.BACKGROUND};
-  padding: ${({theme}) => theme.PIXELS.LARGE};
-  padding-top: ${({theme}) => theme.PIXELS.SIXTY};
 `;
 
 export const GlobalHeaderText = styled.Text`
@@ -30,3 +28,7 @@ export const CenteredRowView = styled.View`
   flex-direction: row;
 `
 
+
+export const GlobalPadding = styled.View`
+  padding: ${({theme}) => theme.PIXELS.LARGE};
+`
