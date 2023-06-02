@@ -16,7 +16,7 @@ export default {
     PIXELS: {
         SMALL: '12px',
         MEDIUM: '16px',
-        LARGE: '24px',
+        LARGE: '22px',
         EXTRALARGE: '32px',
         XXL: '46px',
         SIXTY: '60px',

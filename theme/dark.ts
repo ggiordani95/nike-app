@@ -9,14 +9,14 @@ export default {
         INFO: '#FF9000',
 
         TEXT_PRIMARY: '#FFF',
-        TEXT_SECONDARY: '#d3d3d3',
+        TEXT_SECONDARY: 'grey',
         
 
     },
     PIXELS: {
         SMALL: '12px',
         MEDIUM: '16px',
-        LARGE: '24px',
+        LARGE: '22px',
         EXTRALARGE: '32px',
         XXL: '46px',
         SIXTY: '60px',

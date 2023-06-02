@@ -32,3 +32,9 @@ export const CenteredRowView = styled.View`
 export const GlobalPadding = styled.View`
   padding: ${({theme}) => theme.PIXELS.LARGE};
 `
+
+export const GlobalMargin = styled.View`
+   margin-left: ${({theme}) => theme.PIXELS.LARGE};
+   margin-right: ${({theme}) => theme.PIXELS.LARGE};
+
+`

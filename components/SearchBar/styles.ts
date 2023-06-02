@@ -19,7 +19,5 @@ export const StyledIconRight = styled(Ionicons)`
     z-index:2;
 `
 export const SearchInputContainer = styled.View`
-    margin-left: ${({theme}) => theme.PIXELS.LARGE};
-    margin-right: ${({theme}) => theme.PIXELS.LARGE};
     position: relative;
 `

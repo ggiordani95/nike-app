@@ -35,15 +35,15 @@ export default function index({...props}: INavBar) {
     }
   });
 
-  const translating = () => {
+  const translatingRounded = () => {
     translateXValue.value = withTiming(15, { duration: 500 });
   };
 
   function ChangingColorTheme(){
     handleTheme(!isThemeDark)
     setIsThemeDark(!isThemeDark)
-    translating();
-  }
+    translatingRounded();
+  }  
 
   return (
     <NavBarContainer>

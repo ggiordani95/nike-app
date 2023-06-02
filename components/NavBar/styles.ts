@@ -17,7 +17,8 @@ export const PressableTheme = styled.Pressable`
     border-radius: 30px; 
     background: ${({theme}) => theme.COLORS.PRIMARY_700};
     margin-left: 20px;
-`
+`;
+
 export const RoundedToggle = styled(Animated.View)`
     height: 30px;
     width: 30px;
@@ -28,12 +29,12 @@ export const RoundedToggle = styled(Animated.View)`
     z-index: 3;
     background: ${({theme}) => theme.COLORS.TEXT_PRIMARY};
     opacity: 0.6;
-`
+`;
 export const ProfileImage = styled.Image`
     height: 40px;
     width: 40px;
     border-radius:20px;
-`
+`;
 
 export const RowBetween = styled.View`
     justify-content: space-between;
@@ -42,4 +43,4 @@ export const RowBetween = styled.View`
     padding: ${({theme}) => theme.PIXELS.LARGE}
     flex: 1;
 
-`
+`;
