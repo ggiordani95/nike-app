@@ -2,14 +2,14 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import styled from 'styled-components/native'
 
 export const SearchInput = styled.TextInput.attrs((props) => ({
-    placeholderTextColor: props.theme.COLORS.TEXT_SECONDARY,
+    placeholderTextColor: props.theme.COLORS.TEXT_PRIMARY,
 }))`
     height: 56px;
-    background-color: ${({theme}) => theme.COLORS.PRIMARY_900};
+    background-color: ${({theme}) => theme.COLORS.PRIMARY_700};
     border-radius: ${({theme}) => theme.PIXELS.EXTRALARGE};
     margin-top: 20px;
     padding-left: 20px;
-    color: ${({theme}) => theme.COLORS.TEXT_SECONDARY};
+    color: ${({theme}) => theme.COLORS.TEXT_PRIMARY};
 `
 export const StyledIconRight = styled(Ionicons)`
     color: ${({theme}) => theme.COLORS.TEXT_PRIMARY};

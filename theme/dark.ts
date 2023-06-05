@@ -1,15 +1,15 @@
 export default {
     COLORS: {
-        BACKGROUND: '#191919',
+        BACKGROUND: '#dbdbdb',
 
         PRIMARY_900: '#282828',
         PRIMARY_800: '#323644',
-        PRIMARY_700: '#8F94A3',
+        PRIMARY_700: '#141414',
 
         INFO: '#FF9000',
 
         TEXT_PRIMARY: '#FFF',
-        TEXT_SECONDARY: 'grey',
+        TEXT_SECONDARY: '#131313',
         
 
     },

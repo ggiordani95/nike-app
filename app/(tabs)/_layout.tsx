@@ -39,17 +39,16 @@ export default function Layout() {
           tabBarShowLabel: false,
           tabBarStyle: {
             paddingBottom: 20,
-            backgroundColor: isThemeDark ? '#222222' : '#b9b9b9',
+            backgroundColor: isThemeDark ? '#131313' : '#b9b9b9',
             borderTopWidth: 0,
-            borderRadius: 60,
+            borderRadius: 20,
             height: 70,
-            width: '60%',
+            width: '70%',
             elevation: 0,
             position:'absolute',
-            bottom: 60,
-            left: '20%',
-            right: '20%',
-           
+            bottom: 40,
+            left: '15%',
+            right: '15%',
           },
         })}
     />

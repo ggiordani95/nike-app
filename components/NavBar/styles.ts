@@ -7,7 +7,7 @@ export const NavBarContainer = styled.View`
     align-items: center;
     padding-bottom: ${({theme}) => theme.PIXELS.LARGE};
     padding-top: 50px;
-    background: ${({theme}) => theme.COLORS.PRIMARY_900};
+    background: ${({theme}) => theme.COLORS.PRIMARY_700};
 `;
 
 export const PressableTheme = styled.Pressable`
@@ -15,7 +15,7 @@ export const PressableTheme = styled.Pressable`
     height: 36px;
     position: relative;
     border-radius: 30px; 
-    background: ${({theme}) => theme.COLORS.PRIMARY_700};
+    background: ${({theme}) => theme.COLORS.PRIMARY_800};
     margin-left: 20px;
 `;
 
