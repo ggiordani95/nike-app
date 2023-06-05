@@ -97,7 +97,7 @@ export default function CategorySections() {
         <Text>
           {item.name}
         </Text>
-          <Image source={`image${item.id}` ? `image${item.id}` : ''} style={{width: 140,height: 140, borderRadius: 40}}/>
+        <Image source={'https://github.com/giordani95.png'} style={{width: 140,height: 140, borderRadius: 40}}/>
         </View>
       )
      })}
