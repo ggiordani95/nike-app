@@ -10,9 +10,9 @@ export function ShoesFromCategory(Category: number): Promise<Array<Object>> {
         if(Category == 0){
             const shoes: Shoes[] = [
                 {id: 1423, name: 'LeBron NXXT Gen I Promise', image: 'https://imgnike-a.akamaihd.net/360x360/02538915.jpg'},                
-                {id: 2354, name: 'Women`s Nike TC 7900 Lemon Chiffon', image: ''},
-                {id: 1653, name: 'Women`s Tech Hera Photon Dust', image: ''},
-                {id: 3752, name: 'Women`s Nike Air Huarache Craft Ocean Bliss', image: ''},
+                {id: 2354, name: 'Women`s Nike TC 7900 Lemon Chiffon', image: 'https://imgnike-a.akamaihd.net/360x360/02626851.jpg'},
+                {id: 1653, name: 'Women`s Tech Hera Photon Dust', image: 'https://imgnike-a.akamaihd.net/360x360/02622851.jpg'},
+                {id: 3752, name: 'Women`s Nike Air Huarache Craft Ocean Bliss', image: 'https://imgnike-a.akamaihd.net/360x360/02413551.jpg'},
                 {id: 1888, name: 'Womens Dunk Low', image: ''},
                 {id: 2623, name: 'Tatum 1 Barber Shop', image: ''},
                 {id: 1543, name: 'Ambush X Air Force 1 Low', image: ''},
