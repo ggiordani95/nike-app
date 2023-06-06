@@ -28,7 +28,7 @@ export const CategorySectionView = styled.View`
 `
 
 export const CategoryTextView = styled.View`
-    position: absolute,
+    position: absolute;
     justify-content: center;
     z-index: 3;
     top: -65px;
