@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Categories } from "../../services/Categories";
 import { View, Text, Platform, useWindowDimensions } from "react-native";
-import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
+import { FlatList, ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { CategorySectionView, CategorySectionsContainer, CategoryTextView, ProductTextName, SectionText } from './styles';
 import { ICategory } from "./types";
 import { ShoesFromCategory } from "../../services/Shoes";
@@ -93,25 +93,27 @@ export default function CategorySections() {
           renderItem={({ item, index }: any) => <SectionTextComponent item={item} index={index} indexSectionFocused={handleIndex} focused={sectionFocused == index ? true : false}/>}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-          style={{marginBottom:14}}
+          style={{padding:6, backgroundColor:'#c7c7c7', width: width * 1, marginBottom: 20}}
       />
+      <ScrollView horizontal={false}>
+
+      
       <View style={{flexDirection:'row', maxWidth: width * 0.9, flexWrap: "wrap"}}>
       {currentCategory && currentCategory?.map((item: any, index: number)=>{
       return(
-        <CategorySectionView key={index} style={{width: width * 0.4 , maxHeight: width * 0.4}}>
-          <CategoryTextView style={{width: width * 0.4,height: width * 0.12}}>
+        <CategorySectionView key={index} style={{width: width * 0.25 , maxHeight: width * 0.3, }}>
+          <CategoryTextView style={{width: width * 0.3, height: 36}}>
             <ProductTextName>
               {item.name}
             </ProductTextName>
           </CategoryTextView>
-          <Image source={item.image} style={{width: width * 0.4,height: width * 0.4, borderRadius: 24, position:'absolute'}}/>
+          {item.image && <Image source={item.image} style={{width: width * 0.3,height: width * 0.3, borderRadius: 24, position:'absolute'}}/>}
         </CategorySectionView>
       )
      })}
-
-
+      
       </View>
-     
+      </ScrollView>
     </CategorySectionsContainer>
 
   )
