@@ -95,25 +95,28 @@ export default function CategorySections() {
           showsHorizontalScrollIndicator={false}
           style={{padding:6, backgroundColor:'#c7c7c7', width: width * 1, marginBottom: 20}}
       />
-      <ScrollView horizontal={false}>
+     
 
       
       <View style={{flexDirection:'row', maxWidth: width * 0.9, flexWrap: "wrap"}}>
-      {currentCategory && currentCategory?.map((item: any, index: number)=>{
-      return(
-        <CategorySectionView key={index} style={{width: width * 0.4 , height: width * 0.4, }}>
+      
+      <FlatList
+          data={currentCategory}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item, index }: any) => <CategorySectionView key={index} style={{width: width * 0.4 , height: width * 0.4, }}>
           <CategoryTextView style={{width: width * 0.4, height: 36}}>
             <ProductTextName>
               {item.name}
             </ProductTextName>
           </CategoryTextView>
           {item.image && <Image source={item.image} style={{width: width * 0.4,height: width * 0.4, borderRadius: 24, position:'absolute'}}/>}
-        </CategorySectionView>
-      )
-     })}
-      
+        </CategorySectionView>}
+          horizontal={false}
+          numColumns={2}
+          showsHorizontalScrollIndicator={false}
+      />
       </View>
-      </ScrollView>
+     
     </CategorySectionsContainer>
 
   )
