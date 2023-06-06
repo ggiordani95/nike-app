@@ -101,13 +101,13 @@ export default function CategorySections() {
       <View style={{flexDirection:'row', maxWidth: width * 0.9, flexWrap: "wrap"}}>
       {currentCategory && currentCategory?.map((item: any, index: number)=>{
       return(
-        <CategorySectionView key={index} style={{width: width * 0.3 , maxHeight: width * 0.28, }}>
-          <CategoryTextView style={{width: width * 0.28, height: 36}}>
+        <CategorySectionView key={index} style={{width: width * 0.4 , height: width * 0.4, }}>
+          <CategoryTextView style={{width: width * 0.4, height: 36}}>
             <ProductTextName>
               {item.name}
             </ProductTextName>
           </CategoryTextView>
-          {item.image && <Image source={item.image} style={{width: width * 0.28,height: width * 0.28, borderRadius: 24, position:'absolute'}}/>}
+          {item.image && <Image source={item.image} style={{width: width * 0.4,height: width * 0.4, borderRadius: 24, position:'absolute'}}/>}
         </CategorySectionView>
       )
      })}
