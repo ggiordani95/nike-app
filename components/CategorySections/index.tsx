@@ -14,16 +14,10 @@ export default function CategorySections() {
   const [sectionFocused, setSectionFocused] = useState<number | null>(0);
   
   const {width, height} = useWindowDimensions();
-  const { favoriteSneakers } = useFavoriteStore();
 
   function handleIndex(indexSection: any){
     setSectionFocused(indexSection);
-    console.log(indexSection);
   }
-
-  useEffect(()=>{
-    console.log('fav id', favoriteSneakers.length)
-  },[favoriteSneakers])
 
   useEffect(()=>{
         async function fetchingData (){
@@ -40,9 +34,8 @@ export default function CategorySections() {
           }
         }
         fetchingData();
-      
       return () => {
-        console.log(currentCategory);
+   
       
       }
       
@@ -57,16 +50,13 @@ export default function CategorySections() {
       if(firstSection){
         setCurrentCategory(firstSection);
       }
-     
     }
     fetchingData();
     
     return () => {
     
-      
     }
   }, [])
-
 
   const SectionTextComponent = ({item, index, focused, indexSectionFocused}: any) => {
 
@@ -83,7 +73,6 @@ export default function CategorySections() {
     )
   }
 
-
   return (
     <CategorySectionsContainer>
       <FlatList
@@ -94,28 +83,21 @@ export default function CategorySections() {
           showsHorizontalScrollIndicator={false}
           style={{padding:6, backgroundColor:'#c7c7c7', width: width * 1, marginBottom: 20}}
       />
-     
-
-      
       <View style={{flexDirection:'row', maxWidth: width * 0.9, flexWrap: "wrap"}}>
-      
-      <FlatList
-          data={currentCategory}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item, index }: any) => {
-            return(
-              <CategorySneaker name={item.name} image={item.image} id={item.id} index={index}/>
-            )
-          }}
-          horizontal={false}
-          numColumns={2}
-          showsHorizontalScrollIndicator={false}
-          
-      />
+        <FlatList
+            data={currentCategory}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item, index }: any) => {
+              return(
+                <CategorySneaker name={item.name} image={item.image} id={item.id} index={index}/>
+              )
+            }}
+            horizontal={false}
+            numColumns={2}
+            showsHorizontalScrollIndicator={false}
+        />
       </View>
-       
     </CategorySectionsContainer>
-
   )
 }
 
