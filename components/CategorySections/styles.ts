@@ -12,7 +12,7 @@ export const CategorySectionsContainer = styled.View`
 
 export const SectionText = styled.Text`
     margin: 16px;
-    font-size: 10px;
+    font-size: 13px;
     color: ${({theme}) => theme.COLORS.TEXT_SECONDARY};
     font-weight: 400;
 `
