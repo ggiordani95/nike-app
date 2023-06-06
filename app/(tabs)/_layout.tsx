@@ -2,12 +2,19 @@ import { Tabs } from 'expo-router'
 import { useEffect, useState } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import useThemeStore from '../../stores/theme';
+import useFavoriteStore from '../../stores/favorites';
+import { View, Text } from 'react-native';
+import RoundedInfo from '../../components/RoundedInfo';
+import useCartStore from '../../stores/cart';
+
 
 export default function Layout() {
 
   const [isThemeDark, setIsThemeDark] = useState<boolean>(true);
   
   const isDarkMode = useThemeStore(state => state.isDarkMode);
+  const { favoriteSneakers } = useFavoriteStore();
+  const { atCart } = useCartStore();
 
   useEffect(()=>{
     setIsThemeDark(isDarkMode)
@@ -27,7 +34,23 @@ export default function Layout() {
               iconName = 'shopping',
               iconSize = 28;
             }
-            return <Icon name={iconName} style={{zIndex: 3, height: 60, marginTop: 50}}size={iconSize} color={isThemeDark ? (focused ? 'white' : 'grey') : (focused ? '#323232' : 'grey')} />;
+            return (
+           
+              <View style={{position:'relative'}}>
+                  <Icon name={iconName} style={{zIndex: 3, height: 60, marginTop: 50}}size={iconSize} color={isThemeDark ? (focused ? 'white' : 'grey') : (focused ? '#323232' : 'grey')} />
+                  {route.name === 'adorables' &&  
+                    <View style={{position:'absolute', bottom: 28, left: 16, zIndex: 4}}>
+                      <RoundedInfo size={14} isRoundedNumber={true} number={favoriteSneakers.length}/>
+                    </View>
+                  }
+                  {
+                    route.name === 'cart' && 
+                    <View style={{position:'absolute', bottom: 28, left: 16, zIndex: 4}}>
+                      <RoundedInfo size={14} isRoundedNumber={true} number={atCart.length}/>
+                    </View>
+                  }
+              </View>
+            );
           },
           headerShown: false,
           tabBarLabel: 

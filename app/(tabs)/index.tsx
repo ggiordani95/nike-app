@@ -29,8 +29,7 @@ export default function Dashboard() {
            <SearchBar/>
           </GlobalMargin>
           <CategorySections/>
-          
-          
+          <View style={{paddingBottom: 420}}></View>
         </GlobalContainer>
       </ThemeProvider>
   );

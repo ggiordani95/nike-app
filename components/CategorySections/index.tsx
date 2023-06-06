@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react"
 import { Categories } from "../../services/Categories";
-import { View, Text, Platform, useWindowDimensions } from "react-native";
-import { FlatList, ScrollView, TouchableOpacity } from "react-native-gesture-handler";
-import { CategorySectionView, CategorySectionsContainer, CategoryTextView, ProductTextName, SectionText } from './styles';
-import { ICategory } from "./types";
+import { View, useWindowDimensions } from "react-native";
+import { FlatList,TouchableOpacity } from "react-native-gesture-handler";
+import { CategorySectionsContainer, SectionText } from './styles';
 import { ShoesFromCategory } from "../../services/Shoes";
-import { Image } from 'expo-image';
-import image1423 from '../../assets/shoes/1423.png';
-import image1423_2 from '../../assets/shoes/1423_2.png';
-
-
-
+import useFavoriteStore from "../../stores/favorites";
+import CategorySneaker from "../CategorySneaker";
 
 export default function CategorySections() {
 
@@ -19,12 +14,16 @@ export default function CategorySections() {
   const [sectionFocused, setSectionFocused] = useState<number | null>(0);
   
   const {width, height} = useWindowDimensions();
-
+  const { favoriteSneakers } = useFavoriteStore();
 
   function handleIndex(indexSection: any){
     setSectionFocused(indexSection);
     console.log(indexSection);
   }
+
+  useEffect(()=>{
+    console.log('fav id', favoriteSneakers.length)
+  },[favoriteSneakers])
 
   useEffect(()=>{
         async function fetchingData (){
@@ -103,21 +102,20 @@ export default function CategorySections() {
       <FlatList
           data={currentCategory}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item, index }: any) => <CategorySectionView key={index} style={{width: width * 0.4 , height: width * 0.4, }}>
-          <CategoryTextView style={{width: width * 0.4, height: 36}}>
-            <ProductTextName>
-              {item.name}
-            </ProductTextName>
-          </CategoryTextView>
-          {item.image && <Image source={item.image} style={{width: width * 0.4,height: width * 0.4, borderRadius: 24, position:'absolute'}}/>}
-        </CategorySectionView>}
+          renderItem={({ item, index }: any) => {
+            return(
+              <CategorySneaker name={item.name} image={item.image} id={item.id} index={index}/>
+            )
+          }}
           horizontal={false}
           numColumns={2}
           showsHorizontalScrollIndicator={false}
+          
       />
       </View>
-     
+       
     </CategorySectionsContainer>
 
   )
 }
+
