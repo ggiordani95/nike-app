@@ -49,7 +49,7 @@ export default function index({...props}: INavBar) {
     <NavBarContainer>
         <RowBetween>
           <CenteredRowView>
-            <Image source={{uri: 'https://github.com/ggiordani95.png'}} style={{width: 42, height:42, borderRadius: 21, marginRight: 14}}/>
+            <ProfileImage source={{uri: 'https://github.com/ggiordani95.png'}}/>
             <View>
               <GlobalHeaderText>Bem vindo,</GlobalHeaderText>
               <GlobalHeaderText style={{fontWeight: 'bold'}}>Gustavo</GlobalHeaderText>

@@ -31,9 +31,10 @@ export const RoundedToggle = styled(Animated.View)`
     opacity: 0.6;
 `;
 export const ProfileImage = styled.Image`
-    height: 40px;
-    width: 40px;
-    border-radius:20px;
+    width: 42px;
+    height:42px;
+    border-radius: 21px; 
+    margin-right: 14px;
 `;
 
 export const RowBetween = styled.View`
