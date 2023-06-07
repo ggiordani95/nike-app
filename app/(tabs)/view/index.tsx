@@ -5,6 +5,8 @@ import { AllShoesData } from '../../../services/allshoes';
 import { Image } from 'expo-image';
 import { useWindowDimensions } from 'react-native';
 import { Padding, SneakerName, SneakerPrice, SneakerSubPrice } from './styles';
+import { Link } from 'expo-router';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface ISneaker {
     id: number | null;
@@ -51,9 +53,10 @@ export default function index() {
   const { width, height } = useWindowDimensions();
 
   return (
-    <View style={{backgroundColor:"#fafafa" ,width: width, height: height}}>
-        <Image source={sneakerData.image} style={{width: width, height: height / 3}}/>
-        <Padding>
+    <View style={{backgroundColor:"#f3f3f3" ,width: width, height: height, position: 'relative'}}>
+        <Link href="../(tabs)" style={{position: 'absolute', zIndex: 9, top: height * 0.06, left: width * 0.03}}><Icon name={'chevron-left'} size={40}></Icon></Link>
+        <Image source={sneakerData.image} style={{width: width, height: height / 2}}/>
+        <Padding style={{position: 'relative', top: -(height * 0.04)}}>
             <SneakerName>{sneakerData.name}</SneakerName>
             {sneakerData.price &&
                 <View style={{flexDirection:'row', alignItems:'center'}}>
