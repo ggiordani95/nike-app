@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { Categories } from "../../services/Categories";
+import { Categories } from "../../services/categories";
 import { View, useWindowDimensions } from "react-native";
 import { FlatList,TouchableOpacity } from "react-native-gesture-handler";
 import { CategorySectionsContainer, SectionText } from './styles';
-import { ShoesFromCategory } from "../../services/Shoes";
+import { ShoesFromCategory } from "../../services/shoes";
 import useFavoriteStore from "../../stores/favorites";
 import CategorySneaker from "../CategorySneaker";
 
@@ -81,9 +81,9 @@ export default function CategorySections() {
           renderItem={({ item, index }: any) => <SectionTextComponent item={item} index={index} indexSectionFocused={handleIndex} focused={sectionFocused == index ? true : false}/>}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-          style={{padding:6, backgroundColor:'#c7c7c7', width: width * 1, borderBottomWidth: 2, borderColor:'#707070'}}
+          style={{padding:6, backgroundColor:'#c7c7c7', width: width * 1}}
       />
-      <View style={{flexDirection:'row', maxWidth: width * 0.9, flexWrap: "wrap",paddingVertical: 28,}}>
+      <View style={{flexDirection:'row', maxWidth: width * 0.9, flexWrap: "wrap",paddingVertical: 14}}>
         <FlatList
             data={currentCategory}
             keyExtractor={(item, index) => index.toString()}

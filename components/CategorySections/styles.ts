@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 
 export const CategorySectionsContainer = styled.View`
     margin-left: 0px;
-    margin-top: ${({theme}) => theme.PIXELS.LARGE};
+    
     padding-bottom: 10px;
     justify-content: center;
     align-items: center;

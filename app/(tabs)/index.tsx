@@ -1,5 +1,4 @@
-import { Pressable, View, useWindowDimensions } from "react-native";
-import { GlobalContainer, GlobalHeaderText, GlobalMargin } from '../globalStyles';
+import { GlobalContainer, GlobalMargin } from '../globalStyles';
 import { ThemeProvider } from 'styled-components/native'
 import light from "../../theme/light"
 import dark from "../../theme/dark"
@@ -8,9 +7,10 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "../../components/SearchBar";
 import useThemeStore from "../../stores/theme";
 import CategorySections from "../../components/CategorySections";
+import { Link } from 'expo-router';
 
 export default function Dashboard() {
-  const { width, height } = useWindowDimensions();
+
   const [isThemeDark, setIsThemeDark] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -25,11 +25,7 @@ export default function Dashboard() {
       <ThemeProvider theme={theme ? dark : light}>
         <GlobalContainer>
           <NavBar light={theme ? false : true}/>
-          <GlobalMargin>
-           <SearchBar/>
-          </GlobalMargin>
           <CategorySections/>
-          
         </GlobalContainer>
       </ThemeProvider>
   );

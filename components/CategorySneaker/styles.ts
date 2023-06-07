@@ -1,15 +1,6 @@
 import styled from 'styled-components/native'
 
-export const CategorySectionView = styled.TouchableOpacity`
-    position: relative; 
-    height: 200px;
-    justify-content: center;
-    align-items: center;
-    width: width; 
-    border-radius: 14px; 
-    margin: 10px;
 
-`
 
 export const CategoryTextView = styled.View`
     position: absolute;

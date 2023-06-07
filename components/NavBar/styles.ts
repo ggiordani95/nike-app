@@ -5,7 +5,7 @@ export const NavBarContainer = styled.View`
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    padding-bottom: ${({theme}) => theme.PIXELS.LARGE};
+    padding-bottom: ${({theme}) => theme.PIXELS.MEDIUM};
     padding-top: 50px;
     background: ${({theme}) => theme.COLORS.PRIMARY_700};
 `;

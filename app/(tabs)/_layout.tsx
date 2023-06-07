@@ -35,7 +35,7 @@ export default function Layout() {
               iconSize = 28;
             }
             return (
-           
+             
               <View style={{position:'relative'}}>
                   <Icon name={iconName} style={{zIndex: 3, height: 60, marginTop: 50}}size={iconSize} color={isThemeDark ? (focused ? 'white' : 'grey') : (focused ? '#323232' : 'grey')} />
                   {route.name === 'adorables' &&  
@@ -50,9 +50,12 @@ export default function Layout() {
                     </View>
                   }
               </View>
+              
             );
           },
           headerShown: false,
+          tabBarItemStyle: { display: route.name === 'view' ? 'none' : 'flex' 
+          },
           tabBarLabel: 
           route.name === 'cart' ? 'Carrinho' 
           : 
@@ -65,11 +68,11 @@ export default function Layout() {
             backgroundColor: isThemeDark ? '#131313' : '#b9b9b9',
             borderTopWidth: 0,
             borderRadius: 20,
-            height: 70,
+            height: 80,
             width: '70%',
             elevation: 0,
             position:'absolute',
-            bottom: 40,
+            bottom: 20,
             left: '15%',
             right: '15%',
           },
