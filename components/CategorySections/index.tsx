@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Categories } from "../../services/categories";
 import { View, useWindowDimensions } from "react-native";
-import { FlatList,TouchableOpacity } from "react-native-gesture-handler";
+import { FlatList,ScrollView,TouchableOpacity } from "react-native-gesture-handler";
 import { CategorySectionsContainer, SectionText } from './styles';
 import { ShoesFromCategory } from "../../services/shoes";
 import useFavoriteStore from "../../stores/favorites";
@@ -75,28 +75,34 @@ export default function CategorySections() {
 
   return (
     <CategorySectionsContainer>
+      
+
+      
       <FlatList
           data={categoryNames}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item, index }: any) => <SectionTextComponent item={item} index={index} indexSectionFocused={handleIndex} focused={sectionFocused == index ? true : false}/>}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-          style={{padding:6, backgroundColor:'#c7c7c7', width: width * 1}}
+          style={{padding:6, backgroundColor:'#c7c7c7', width: width * 1, zIndex: 4}}
       />
-      <View style={{flexDirection:'row', maxWidth: width * 0.9, flexWrap: "wrap",paddingVertical: 14}}>
-        <FlatList
-            data={currentCategory}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item, index }: any) => {
-              return(
-                <CategorySneaker name={item.name} image={item.image} id={item.id} index={index}/>
-              )
-            }}
-            horizontal={false}
-            numColumns={2}
-            showsHorizontalScrollIndicator={false}
-        />
-      </View>
+      <FlatList
+        data={currentCategory}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item, index }: any) => (
+          <CategorySneaker name={item.name} image={item.image} id={item.id} index={index} />
+        )}
+        horizontal={false}
+        numColumns={2}
+        showsVerticalScrollIndicator={false}
+        style={{
+          flexDirection: 'row',
+          maxWidth: width * 0.9,
+          flexWrap: 'wrap',
+          paddingVertical: 14,
+        }}
+        ListFooterComponent={<View style={{ height: height * 0.3 }} />}
+      />
     </CategorySectionsContainer>
   )
 }

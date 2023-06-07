@@ -75,6 +75,7 @@ export default function Layout() {
             bottom: 20,
             left: '15%',
             right: '15%',
+            display:'none',
           },
         })}
     />

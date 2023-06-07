@@ -8,11 +8,13 @@ import SearchBar from "../../components/SearchBar";
 import useThemeStore from "../../stores/theme";
 import CategorySections from "../../components/CategorySections";
 import { Link } from 'expo-router';
+import { View, useWindowDimensions } from 'react-native';
 
 export default function Dashboard() {
 
   const [isThemeDark, setIsThemeDark] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const {height} = useWindowDimensions();
 
   const theme = useThemeStore(state => state.isDarkMode);
 
@@ -26,7 +28,9 @@ export default function Dashboard() {
         <GlobalContainer>
           <NavBar light={theme ? false : true}/>
           <CategorySections/>
+         
         </GlobalContainer>
+        
       </ThemeProvider>
   );
 }
