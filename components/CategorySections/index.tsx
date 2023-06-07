@@ -81,9 +81,9 @@ export default function CategorySections() {
           renderItem={({ item, index }: any) => <SectionTextComponent item={item} index={index} indexSectionFocused={handleIndex} focused={sectionFocused == index ? true : false}/>}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-          style={{padding:6, backgroundColor:'#c7c7c7', width: width * 1, marginBottom: 20}}
+          style={{padding:6, backgroundColor:'#c7c7c7', width: width * 1, borderBottomWidth: 2, borderColor:'#707070'}}
       />
-      <View style={{flexDirection:'row', maxWidth: width * 0.9, flexWrap: "wrap"}}>
+      <View style={{flexDirection:'row', maxWidth: width * 0.9, flexWrap: "wrap",paddingVertical: 28,}}>
         <FlatList
             data={currentCategory}
             keyExtractor={(item, index) => index.toString()}
