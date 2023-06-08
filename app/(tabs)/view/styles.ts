@@ -1,25 +1,27 @@
 import styled from 'styled-components/native';
 
 export const SneakerName = styled.Text`
-    font-size: 32px;
+    font-size: 24px;
     color: #363636;
     font-weight: bold;
-    margin: -10px 0px 10px 0px;
+    margin: -20px 0px 0px 0px;
 `
 export const Padding = styled.View`
     padding: 30px;
 
 `
 export const SneakerPrice = styled.Text`
-    font-size: 28px;
-    font-weight: semibold;
+    font-size: 24px;
+    font-weight: bold;
     color: #363636;
 `
 export const SneakerSubPrice = styled.Text`
-    font-size: 14px;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    margin-left: 8px;
+    font-size: 12px;
     color: #363636;
-    font-weight: semibold;
+    font-weight: 500;
+`
+export const SneakerDescription = styled.Text`
+    margin: 20px 20px 20px 0px;
+    font-size: 10px;
+    font-weight: 400;
 `

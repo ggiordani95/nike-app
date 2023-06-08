@@ -12,7 +12,8 @@ export const CategorySectionsContainer = styled.View`
 `
 
 export const SectionText = styled.Text`
-    margin: 16px;
+    margin: 14px;
+    padding: 6px;
     font-size: 13px;
     color: ${({theme}) => theme.COLORS.TEXT_SECONDARY};
     font-weight: 400;
@@ -30,20 +31,9 @@ export const CategorySectionView = styled.TouchableOpacity`
 
 `
 
-export const CategoryTextView = styled.View`
-    position: absolute;
-    justify-content: center;
-    z-index: 3;
-    top: -10px;
-    padding: 12px;
-    border-top-left-radius: 14px;
-    border-top-right-radius: 14px;
-    background: ${({theme}) => theme.COLORS.TEXT_SECONDARY};
+export const FlatListCategories = styled.FlatList`
+    z-index: 4;
+    background-color: #c7c7c7;
 
-`
-export const ProductTextName = styled.Text`
-    font-size: 10px;
-    font-weight: 400;
-    color: #d3d3d3;
 
 `
