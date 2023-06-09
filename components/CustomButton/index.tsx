@@ -6,8 +6,8 @@ import { ICustomButton } from './types'
 const CustomButton = ({...props}:ICustomButton) => {
   const { height, width } = useWindowDimensions();
   return (
-    <ButtonPressable style={{height: height * 0.1, width: width * 0.9, borderRadius: height * 0.02}}>
-      <Text style={{color: '#fafafa'}}>{props.text}</Text>
+    <ButtonPressable style={{flex: 1, height: 70,borderRadius: height * 0.05}}>
+      <Text style={{color: '#fafafa', fontSize: 16, fontWeight:'bold'}}>{props.text}</Text>
     </ButtonPressable>
   )
 }
