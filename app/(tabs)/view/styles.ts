@@ -8,7 +8,7 @@ export const SneakerName = styled.Text`
 `
 export const Padding = styled.View`
     padding: 20px;
-    background: #e0e0e0;
+    background: #ededed;
     box-shadow: 10px 5px 5px black;
     flex: 1;
     justify-content: space-around;
