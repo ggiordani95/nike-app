@@ -13,9 +13,9 @@ interface ISelectOption {
 }
 
 const SelectOption = ({...props}: ISelectOption) => {
-
-  const [selectedSneaker, setSelectedSneaker] = useState<string | null>();
-  const sneakerSizes = ['39','40','41','42','43'];  
+  const sneakerSizes = ['39','40','41','42','43']; 
+  const [selectedSneaker, setSelectedSneaker] = useState<string | null>(sneakerSizes[0]);
+  
   const { width, height } = useWindowDimensions();
 
   const CIRCLE_DIMENSION = height * 0.06;
