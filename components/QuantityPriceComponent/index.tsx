@@ -2,6 +2,7 @@ import { View, Text } from 'react-native'
 import { Circle, CircleGroup, Qtity, QuantityPriceSection, QuantityView, RowSpace, SneakerPrice, SneakerSubPrice, ViewHeaderSection } from './styles'
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { useEffect, useState } from 'react';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 const QuantityPriceComponent = (price: any) => {
 
@@ -36,7 +37,7 @@ const QuantityPriceComponent = (price: any) => {
 
 
   return (
-    <QuantityPriceSection style={{flex: 1 , alignItems:'center', justifyContent:'center', marginVertical: 10}}>
+    <QuantityPriceSection style={{flex: 1 , alignItems:'center', justifyContent:'center', marginVertical: 24}}>
           <RowSpace style={{width: '100%'}}>
           <QuantityView>
             <ViewHeaderSection>Quantidade</ViewHeaderSection>
@@ -52,7 +53,7 @@ const QuantityPriceComponent = (price: any) => {
           </QuantityView>
           { price.price && (
             <View style={{flexDirection: "column",justifyContent: "center",gap: 4}}>
-              <SneakerPrice>R$ {currentPrice.toString()}</SneakerPrice>
+              <SneakerPrice style={{fontSize: RFValue(18)}}>R$ {currentPrice.toString()}</SneakerPrice>
               <SneakerSubPrice>
                 ou 10x de R${Math.floor(currentPrice / 10).toString()},99
               </SneakerSubPrice>

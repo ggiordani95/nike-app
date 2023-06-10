@@ -1,10 +1,9 @@
 import styled from 'styled-components/native';
 
 export const SneakerName = styled.Text`
-    font-size: 22px;
     color: #343434;
-    font-weight: bold;
-    margin: -20px 0px 0px 0px;
+    font-weight: 400;
+    margin: -15px 0px 0px 0px;
 `
 export const Padding = styled.View`
     padding: 20px;

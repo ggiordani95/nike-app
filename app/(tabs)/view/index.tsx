@@ -14,6 +14,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import CustomButton from "../../../components/CustomButton";
 import QuantityPriceComponent from "../../../components/QuantityPriceComponent";
 import SelectOption from "../../../components/SelectOption";
+import { RFValue } from "react-native-responsive-fontsize";
 
 
 interface ISneaker {
@@ -87,7 +88,7 @@ export default function index() {
           zIndex: 4,
           top: height * 0.07,
           right: width * 0.07,
-          backgroundColor: "#181818",
+          backgroundColor: "#161616",
           borderRadius: 40,
         }}
       >
@@ -98,25 +99,20 @@ export default function index() {
         style={{ width: width, height: height / 2 }}
       />
       <Padding>
-          <View style={{flex: 0.5,justifyContent:'center', marginTop: 10}}>
-            <SneakerName >{sneakerData.name}</SneakerName>
+          <View style={{flex: 0.3,justifyContent:'center'}}>
+            <SneakerName style={{fontSize:RFValue(18)}}>{sneakerData.name}</SneakerName>
           </View>
-          
-       
+          <View style={{flex: 1,justifyContent:'center'}}>
           <SelectOption headerText="Selecione o tamanho"/>
-          
           <QuantityPriceComponent price={sneakerData.price ? sneakerData.price : '0'}/>
-          <View style={{flex: 1, justifyContent:'center'}}>
-            
+          </View>
+          <View style={{flex: 0.4, justifyContent:'center'}}>
             <CustomButton
                 onPress={() => ""}
-                text={"Comprar"}
-                background={"#181818"}
+                text={"Adicionar ao Carrinho"}
+                background={"#161616"}
               />
           </View>
-        
-        
-        
       </Padding>
     </View>
   );

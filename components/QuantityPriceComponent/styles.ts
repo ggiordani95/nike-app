@@ -14,7 +14,6 @@ export const ViewHeaderSection = styled.Text`
 `
 
 export const SneakerPrice = styled.Text`
-    font-size: 20px;
     font-weight: 400;
     color: #343434;
 `
@@ -51,7 +50,7 @@ export const Qtity = styled.Text`
 export const RowSpace = styled.View`
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 
 `
 export const QuantityView = styled.View`
