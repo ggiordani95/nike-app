@@ -27,8 +27,8 @@ export const Circle = styled.Pressable`
     border-radius: 16px;
     justify-content: center;
     align-items: center;
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
 
 `
 export const CircleGroup = styled.View`
@@ -50,7 +50,7 @@ export const Qtity = styled.Text`
 export const RowSpace = styled.View`
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 
 `
 export const QuantityView = styled.View`

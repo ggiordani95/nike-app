@@ -18,7 +18,7 @@ const SelectOption = ({...props}: ISelectOption) => {
   
   const { width, height } = useWindowDimensions();
 
-  const CIRCLE_DIMENSION = height * 0.06;
+  const CIRCLE_DIMENSION = height * 0.05;
 
   const scaleValue = useSharedValue(1);
   

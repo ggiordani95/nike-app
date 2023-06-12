@@ -42,20 +42,20 @@ const QuantityPriceComponent = (price: any) => {
           <QuantityView>
             <ViewHeaderSection>Quantidade</ViewHeaderSection>
             <CircleGroup>
-              <Circle onPress={()=> handleQuantity(false)}>
+              <Circle onPress={()=> handleQuantity(false)} style={{height: RFValue(26), width: RFValue(26)}}>
                 <Icon name={"chevron-left"} size={24} color={'#b9b9b9'}></Icon>
               </Circle>
                 <Qtity style={{marginHorizontal: 10}}>{quantityItem}</Qtity>
-              <Circle onPress={()=> handleQuantity(true)}>
+              <Circle onPress={()=> handleQuantity(true)} style={{height: RFValue(26), width: RFValue(26)}}>
                 <Icon name={"chevron-right"} size={24} color={'#b9b9b9'}></Icon>
               </Circle>
             </CircleGroup>
           </QuantityView>
           { price.price && (
-            <View style={{flexDirection: "column",justifyContent: "center",gap: 4}}>
-              <SneakerPrice style={{fontSize: RFValue(18)}}>R$ {currentPrice.toString()}</SneakerPrice>
+            <View style={{flexDirection: "column",justifyContent: "center",gap: 4, marginTop: RFValue(14), marginRight: RFValue(8)}}>
+              <SneakerPrice style={{fontSize: RFValue(20)}}>R$ {currentPrice.toString()}</SneakerPrice>
               <SneakerSubPrice>
-                ou 10x de R${Math.floor(currentPrice / 10).toString()},99
+                ou 10x de R${Math.round(currentPrice / 10).toString()}
               </SneakerSubPrice>
             </View>
           )}

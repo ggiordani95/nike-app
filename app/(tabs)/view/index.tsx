@@ -99,19 +99,21 @@ export default function index() {
         style={{ width: width, height: height / 2 }}
       />
       <Padding>
-          <View style={{flex: 0.3,justifyContent:'center'}}>
+          <View style={{flex: 0.4,justifyContent:'center'}}>
             <SneakerName style={{fontSize:RFValue(18)}}>{sneakerData.name}</SneakerName>
           </View>
           <View style={{flex: 1,justifyContent:'center'}}>
-          <SelectOption headerText="Selecione o tamanho"/>
-          <QuantityPriceComponent price={sneakerData.price ? sneakerData.price : '0'}/>
+            <SelectOption headerText="Selecione o tamanho"/>
+            <QuantityPriceComponent price={sneakerData.price ? sneakerData.price : '0'}/>
           </View>
           <View style={{flex: 0.4, justifyContent:'center'}}>
+           
             <CustomButton
                 onPress={() => ""}
                 text={"Adicionar ao Carrinho"}
                 background={"#161616"}
               />
+              
           </View>
       </Padding>
     </View>
