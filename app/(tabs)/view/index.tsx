@@ -103,7 +103,7 @@ export default function index() {
             <SneakerName style={{fontSize:RFValue(18)}}>{sneakerData.name}</SneakerName>
           </View>
           <View style={{flex: 1,justifyContent:'center'}}>
-            <SelectOption headerText="Selecione o tamanho"/>
+            <SelectOption headerText="Selecione o tamanho" refresh={currentSneakerIdToFetch} />
             <QuantityPriceComponent price={sneakerData.price ? sneakerData.price : '0'}/>
           </View>
           <View style={{flex: 0.4, justifyContent:'center'}}>

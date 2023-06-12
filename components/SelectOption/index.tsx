@@ -9,7 +9,7 @@ import { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming } from
 
 interface ISelectOption {
     headerText: string;
-
+    refresh: number | null;
 }
 
 const SelectOption = ({...props}: ISelectOption) => {
