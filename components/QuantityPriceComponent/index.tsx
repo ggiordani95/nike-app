@@ -4,36 +4,42 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { useEffect, useState } from 'react';
 import { RFValue } from 'react-native-responsive-fontsize';
 
-const QuantityPriceComponent = (price: any) => {
+const QuantityPriceComponent = ({price,sendDataToParent}: any) => {
 
   const [quantityItem, setQuantityItem] = useState<number>(1);
-  const [currentPrice, setCurrentPrice] = useState<number>(price.price);
+  const [currentPrice, setCurrentPrice] = useState<number>(price);
 
 
   useEffect(() => {
-    setCurrentPrice(price.price);
+    setCurrentPrice(price);
     setQuantityItem(1);
-    return () => {
-     
-    }
-  }, [price.price])
-  
 
+    return () => {
+      
+    }
+  }, [price])
+  
   function handleQuantity(addingItem: boolean){
     if(addingItem){
       if(quantityItem >= 10){
         return
       }
       setQuantityItem(quantityItem + 1)
-      setCurrentPrice(Math.round(currentPrice + price.price));
+      setCurrentPrice(Math.round(currentPrice + price));
+
+
     }else{
       if(quantityItem <= 1){
         return
       }
       setQuantityItem(quantityItem - 1)
-      setCurrentPrice(Math.round(currentPrice - price.price));
+      setCurrentPrice(Math.round(currentPrice - price));
+     
     }
+    sendDataToParent({price: currentPrice + price, quantity: quantityItem + 1})
   }
+
+ 
 
   return (
     <QuantityPriceSection style={{flex: 1 , alignItems:'center', justifyContent:'center', marginVertical: 24}}>
@@ -50,7 +56,7 @@ const QuantityPriceComponent = (price: any) => {
                 </Circle>
               </CircleGroup>
             </QuantityView>
-            { price.price && (
+            { price && (
             <View style={{flexDirection: "column",justifyContent: "center",gap: 4, marginTop: RFValue(14), marginRight: RFValue(8)}}>
               <SneakerPrice style={{fontSize: RFValue(20)}}>R$ {currentPrice.toString()}</SneakerPrice>
               <SneakerSubPrice>

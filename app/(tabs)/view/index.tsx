@@ -23,6 +23,9 @@ interface ISneaker {
   desc: string | null;
   image: string | null;
   price: number | null;
+  selectedNumber: number | null;
+  cart_price: number | null;
+  cart_quantity: number;
 }
 
 export default function index() {
@@ -34,6 +37,9 @@ export default function index() {
     desc: null,
     image: null,
     price: null,
+    selectedNumber: null,
+    cart_price: null,
+    cart_quantity: 1,
   });
 
   useEffect(() => {
@@ -57,6 +63,15 @@ export default function index() {
   }, [currentSneakerIdToFetch]);
 
   const { width, height } = useWindowDimensions();
+
+  const handleSelectedNumber = (select: any) => {
+    const number = Math.round(select);
+    setSneakerData({...sneakerData, selectedNumber: number})
+  }
+
+  const handleQuantityAndPrice = (object: any) => {
+    setSneakerData({...sneakerData, cart_price: object.price, cart_quantity: object.quantity})
+  }
 
   return (
     <View
@@ -87,11 +102,25 @@ export default function index() {
           padding: 10,
           zIndex: 4,
           top: height * 0.07,
+          right: width * 0.20,
+          backgroundColor: "#161616",
+          borderRadius: 40,
+        }}
+      >
+      <Icon name={"cart"} size={24} color={"#f5f5f5"}></Icon>
+      </Pressable>
+      <Pressable
+        style={{
+          position: "absolute",
+          padding: 10,
+          zIndex: 4,
+          top: height * 0.07,
           right: width * 0.07,
           backgroundColor: "#161616",
           borderRadius: 40,
         }}
       >
+        
         <Icon name={"cards-heart-outline"} size={24} color={"#f5f5f5"}></Icon>
       </Pressable>
       <Image
@@ -103,8 +132,8 @@ export default function index() {
             <SneakerName style={{fontSize:RFValue(18)}}>{sneakerData.name}</SneakerName>
           </View>
           <View style={{flex: 1,justifyContent:'center'}}>
-            <SelectOption headerText="Selecione o tamanho" refresh={currentSneakerIdToFetch} />
-            <QuantityPriceComponent price={sneakerData.price ? sneakerData.price : '0'}/>
+            <SelectOption headerText="Selecione o tamanho" refresh={currentSneakerIdToFetch} sendDataToParent={handleSelectedNumber}/>
+            <QuantityPriceComponent price={sneakerData.price ? sneakerData.price : '0'} sendDataToParent={handleQuantityAndPrice}/>
           </View>
           <View style={{flex: 0.4, justifyContent:'center'}}>
            

@@ -1,15 +1,14 @@
 import { View, Text, useWindowDimensions } from 'react-native'
 import { Circle, CircleGroup,RowSpace,SelectSection, SelectionView, ViewHeaderSection } from './styles'
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
-
-
 
 interface ISelectOption {
     headerText: string;
     refresh: number | null;
+    sendDataToParent: any;
 }
 
 const SelectOption = ({...props}: ISelectOption) => {
@@ -29,8 +28,13 @@ const SelectOption = ({...props}: ISelectOption) => {
   });
 
   useEffect(()=>{
+    setSelectedSneaker(sneakerSizes[0])
+  },[props.refresh])
 
-  },[selectedSneaker])
+  const selecting = (sizeSelected: any) => {
+     setSelectedSneaker(sizeSelected)
+     props.sendDataToParent(sizeSelected);
+  }
 
   return (
     <SelectSection style={{flex: 1, alignItems:'center', justifyContent:'center'}}>
@@ -40,7 +44,7 @@ const SelectOption = ({...props}: ISelectOption) => {
               <CircleGroup>
                   {sneakerSizes.map((size:string, key: number)=>{
                       return(
-                          <Circle onPress={() => setSelectedSneaker(size)} 
+                          <Circle onPress={() => selecting(size)} 
                                   style={[{
                                             width: CIRCLE_DIMENSION, 
                                             height: CIRCLE_DIMENSION, 
