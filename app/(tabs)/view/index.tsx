@@ -34,8 +34,6 @@ interface ISneaker {
 export default function index() {
   const { currentSneakerIdToFetch } = useViewStore();
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [likeIsDisplayed,setLikeIsDisplayed] = useState<boolean>(false);
-  const [cartIsDisplayed, setCartIsDisplayed] = useState<boolean>(false);
   const [sneakerData, setSneakerData] = useState<ISneaker>({
     id: null,
     name: null,
