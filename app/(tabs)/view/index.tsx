@@ -1,4 +1,4 @@
-import { View, Text, Pressable, ScrollView } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import useViewStore from "../../../stores/view";
 import { AllShoesData } from "../../../services/allshoes";
@@ -7,7 +7,6 @@ import { useWindowDimensions } from "react-native";
 import {
   Padding,
   SneakerName,
-  ViewHeaderSection,
 } from "./styles";
 import { Link } from "expo-router";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -15,7 +14,6 @@ import CustomButton from "../../../components/CustomButton";
 import QuantityPriceComponent from "../../../components/QuantityPriceComponent";
 import SelectOption from "../../../components/SelectOption";
 import { RFValue } from "react-native-responsive-fontsize";
-import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from "react-native-reanimated";
 import LikeAndCartLabel from "../../../components/LikeAndCartLabel";
 
 
@@ -78,7 +76,7 @@ export default function index() {
 
   return (
     <View style={{backgroundColor: "#f5f5f5",width: width,height: height,position: "relative",flex: 1,}}>
-      <Link href="../(tabs)" style={{position: "absolute",zIndex: 4,top: height * 0.07,left: width * 0.03,width: 100}}>
+      <Link href="../(tabs)" style={{position: "relative",zIndex: 4,top: height * 0.07,left: width * 0.03,width: 100}}>
         <Icon name={"chevron-left"} size={40} style={{opacity: 0.7}}/>
       </Link>
       <LikeAndCartLabel like={false} onPress={()=> ''} iconName={"cart-outline"} top={height * 0.06} right={width * 0.20}/>
