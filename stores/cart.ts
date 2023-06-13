@@ -1,22 +1,22 @@
 import { create } from 'zustand';
 
 interface Cart {
-    atCart: Array<number>;
-    addToCart: (sneakerId:number) => void;
-    removeFromCart: (sneakerId:number) => void;
+    atCart: Array<Object>;
+    addToCart: (sneakerData:{}) => void;
+    removeFromCart: (sneakerData:{}) => void;
 } 
 
 
 const useCartStore = create<Cart>((set)=>{
     return {
         atCart: [],
-        addToCart: (sneakerId) =>
+        addToCart: (sneakerData) =>
             set((state) => ({
-              atCart: [...state.atCart, sneakerId],
+              atCart: [...state.atCart, sneakerData],
             })),
-        removeFromCart: (sneakerId) =>
+        removeFromCart: (sneakerData) =>
             set((state) => ({
-                atCart: state.atCart.filter((id) => id !== sneakerId),
+                atCart: state.atCart.filter((id) => id !== sneakerData),
             })),
      }
 })
