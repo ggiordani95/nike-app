@@ -38,7 +38,7 @@ const QuantityPriceComponent = ({price,sendDataToParent}: any) => {
      
     }
     sendDataToParent({price: currentPrice + price, quantity: quantityItem + 1})
-    scaleValue.value = withSpring(1.3,{}, () => {
+    scaleValue.value = withSpring(1.2,{}, () => {
       scaleValue.value = withSpring(1);
     })
   }
@@ -72,7 +72,7 @@ const QuantityPriceComponent = ({price,sendDataToParent}: any) => {
             </QuantityView>
             { price && (
             <View style={{flexDirection: "column",justifyContent: "center",gap: 4, marginTop: RFValue(14), marginRight: RFValue(8)}}>
-              <SneakerPrice style={{fontSize: RFValue(20)}}>R$ {currentPrice.toString()}</SneakerPrice>
+              <Animated.View style={[zoomInAnimate]}><SneakerPrice style={{fontSize: RFValue(20)}}>R$ {currentPrice.toString()}</SneakerPrice></Animated.View>
               <SneakerSubPrice>
                 ou 10x de R${Math.floor(currentPrice / 10).toString()}
               </SneakerSubPrice>

@@ -49,7 +49,7 @@ const SelectOption = ({...props}: ISelectOption) => {
                     
                       return(
                         <Animated.View style={[{width: CIRCLE_DIMENSION,borderRadius: height * 0.02,marginHorizontal: 2, 
-                        height: CIRCLE_DIMENSION,},size === selectedSneaker && reanimatedStyle ]} key={key}>
+                        height: CIRCLE_DIMENSION,},size == selectedSneaker && reanimatedStyle ]} key={key}>
                           <Circle onPress={() => selecting(size)} 
                                   style={[{
                                             width: CIRCLE_DIMENSION, 
