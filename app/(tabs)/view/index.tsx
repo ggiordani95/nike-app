@@ -78,8 +78,6 @@ export default function index() {
   const cartStore = useCartStore(state => state.addToCart);
   const atCart = useCartStore(state => state.atCart);
 
-
-  console.log(atCart);
   return (
     <View style={{backgroundColor: "#f5f5f5",width: width,height: height,position: "relative",flex: 1,}}>
       <Link href="../(tabs)" style={{position: "relative",zIndex: 4,top: height * 0.07,left: width * 0.03,width: 100}}>
