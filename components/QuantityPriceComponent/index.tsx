@@ -1,8 +1,9 @@
-import { View, Text } from 'react-native'
+import { View, Text, useAnimatedValue } from 'react-native'
 import { Circle, CircleGroup, Qtity, QuantityPriceSection, QuantityView, RowSpace, SneakerPrice, SneakerSubPrice, ViewHeaderSection } from './styles'
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { useEffect, useState } from 'react';
 import { RFValue } from 'react-native-responsive-fontsize';
+import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 
 const QuantityPriceComponent = ({price,sendDataToParent}: any) => {
 
@@ -37,20 +38,33 @@ const QuantityPriceComponent = ({price,sendDataToParent}: any) => {
      
     }
     sendDataToParent({price: currentPrice + price, quantity: quantityItem + 1})
+    scaleValue.value = withSpring(1.3,{}, () => {
+      scaleValue.value = withSpring(1);
+    })
   }
 
- 
+  const scaleValue = useSharedValue(1);
+
+  const zoomInAnimate = useAnimatedStyle(() => {
+      return {
+        transform:[{ scale: scaleValue.value}]
+      }
+  })
 
   return (
     <QuantityPriceSection style={{flex: 1 , alignItems:'center', justifyContent:'center', marginVertical: 24}}>
           <RowSpace style={{width: '100%'}}>
             <QuantityView>
-              <ViewHeaderSection>Quantidade</ViewHeaderSection>
+              
+                <ViewHeaderSection>Quantidade</ViewHeaderSection>
+             
               <CircleGroup>
                 <Circle onPress={()=> handleQuantity(false)} style={{height: RFValue(26), width: RFValue(26)}}>
                   <Icon name={"chevron-left"} size={24} color={'#b9b9b9'}/>
                 </Circle>
-                  <Qtity style={{marginHorizontal: 10}}>{quantityItem}</Qtity>
+                  <Animated.View style={[zoomInAnimate]}>
+                    <Qtity style={{marginHorizontal: 10}}>{quantityItem}</Qtity>
+                  </Animated.View>
                 <Circle onPress={()=> handleQuantity(true)} style={{height: RFValue(26), width: RFValue(26)}}>
                   <Icon name={"chevron-right"} size={24} color={'#b9b9b9'}/>
                 </Circle>

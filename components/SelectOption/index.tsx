@@ -3,7 +3,7 @@ import { Circle, CircleGroup,RowSpace,SelectSection, SelectionView, ViewHeaderSe
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { SetStateAction, useEffect, useState } from 'react';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import Animated, { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 
 interface ISelectOption {
     headerText: string;
@@ -34,6 +34,9 @@ const SelectOption = ({...props}: ISelectOption) => {
   const selecting = (sizeSelected: any) => {
      setSelectedSneaker(sizeSelected)
      props.sendDataToParent(sizeSelected);
+     scaleValue.value = withSpring(1.3, {}, () => {
+      scaleValue.value = withSpring(1);
+    });
   }
 
   return (
@@ -43,7 +46,10 @@ const SelectOption = ({...props}: ISelectOption) => {
               <ViewHeaderSection style={{fontSize: RFValue(14)}}>{props.headerText}</ViewHeaderSection>
               <CircleGroup>
                   {sneakerSizes.map((size:string, key: number)=>{
+                    
                       return(
+                        <Animated.View style={[{backgroundColor:'red',width: CIRCLE_DIMENSION,borderRadius: height * 0.02,marginHorizontal: 2, 
+                        height: CIRCLE_DIMENSION,},size === selectedSneaker && reanimatedStyle ]} key={key}>
                           <Circle onPress={() => selecting(size)} 
                                   style={[{
                                             width: CIRCLE_DIMENSION, 
@@ -58,6 +64,7 @@ const SelectOption = ({...props}: ISelectOption) => {
                                 {size}
                             </Text>
                           </Circle>
+                          </Animated.View>
                       )
                   })
                   }
