@@ -48,7 +48,7 @@ const SelectOption = ({...props}: ISelectOption) => {
                   {sneakerSizes.map((size:string, key: number)=>{
                     
                       return(
-                        <Animated.View style={[{backgroundColor:'red',width: CIRCLE_DIMENSION,borderRadius: height * 0.02,marginHorizontal: 2, 
+                        <Animated.View style={[{width: CIRCLE_DIMENSION,borderRadius: height * 0.02,marginHorizontal: 2, 
                         height: CIRCLE_DIMENSION,},size === selectedSneaker && reanimatedStyle ]} key={key}>
                           <Circle onPress={() => selecting(size)} 
                                   style={[{
