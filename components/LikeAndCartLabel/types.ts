@@ -3,3 +3,13 @@ export interface ICustomButton {
     onPress: () => void;
     background: string;
 }
+
+export interface ILabel {
+    onPress: () => void;
+    iconName: string;
+    top?: number;
+    right?: number;
+    like: boolean;
+    sameRef?: string;
+    variantIcon?: string;
+  }

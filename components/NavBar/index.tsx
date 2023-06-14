@@ -1,5 +1,5 @@
 import { CenteredRowView, GlobalHeaderText, GlobalPadding } from '../../app/globalStyles'
-import { NavBarContainer, PressableTheme, ProfileImage, RoundedToggle, RowBetween } from './styles';
+import { LabelContainer, NavBarContainer, PressableTheme, ProfileImage, RoundedToggle, RowBetween, RowLabel } from './styles';
 import { Image } from 'expo-image';
 import { INavBar } from './types';
 import logoBlack from '../../assets/nikeblack.png'
@@ -13,6 +13,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import CustomLabel from '../CustomLabel';
 
 
 export default function index({...props}: INavBar) {
@@ -46,6 +47,8 @@ export default function index({...props}: INavBar) {
   }  
 
   return (
+    <>
+   
     <NavBarContainer>
         <RowBetween>
           <CenteredRowView>
@@ -60,6 +63,15 @@ export default function index({...props}: INavBar) {
           </CenteredRowView>
           <Image transition={200} source={props.light ? logoBlack : logoWhite} style={{width: 50, height: 35}}/>
         </RowBetween>
+        
     </NavBarContainer>
+    <LabelContainer style={{width: '100%', height: 100}}>
+      <RowLabel>
+        <CustomLabel backgroundLabel={props.light ? '#c9c9c9' : '#191919'} labelColor={props.light ? '#131313' : '#fafafa'} iconName={'cart'} labelName="Carrinho" onPress={() => ''}/>
+        <CustomLabel backgroundLabel={props.light ? '#c9c9c9' : '#191919'} labelColor={props.light ? '#131313' : '#fafafa'} iconName={'heart'} labelName="Curtidas" onPress={() => ''}/>
+      </RowLabel>
+      
+    </LabelContainer>
+    </>
   )
 }

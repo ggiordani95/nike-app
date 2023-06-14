@@ -2,17 +2,8 @@ import { Pressable, Text, View, useWindowDimensions } from 'react-native'
 import { useState } from 'react';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { ILabel } from './types';
 
-
-interface ILabel {
-  onPress: () => void;
-  iconName: string;
-  top: number;
-  right: number;
-  like: boolean;
-  sameRef?: string;
-  variantIcon?: string;
-}
 
 const LikeAndCartLabel = ({...props}: ILabel) => {
 

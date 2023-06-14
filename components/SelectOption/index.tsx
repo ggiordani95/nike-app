@@ -34,7 +34,7 @@ const SelectOption = ({...props}: ISelectOption) => {
   const selecting = (sizeSelected: any) => {
      setSelectedSneaker(sizeSelected)
      props.sendDataToParent(sizeSelected);
-     scaleValue.value = withSpring(1.3, {}, () => {
+     scaleValue.value = withSpring(0.8, {}, () => {
       scaleValue.value = withSpring(1);
     });
   }
@@ -46,21 +46,11 @@ const SelectOption = ({...props}: ISelectOption) => {
               <ViewHeaderSection style={{fontSize: RFValue(14)}}>{props.headerText}</ViewHeaderSection>
               <CircleGroup>
                   {sneakerSizes.map((size:string, key: number)=>{
-                    
                       return(
-                        <Animated.View style={[{width: CIRCLE_DIMENSION,borderRadius: height * 0.02,marginHorizontal: 2, 
-                        height: CIRCLE_DIMENSION,},size == selectedSneaker && reanimatedStyle ]} key={key}>
-                          <Circle onPress={() => selecting(size)} 
-                                  style={[{
-                                            width: CIRCLE_DIMENSION, 
-                                            height: CIRCLE_DIMENSION, 
-                                            borderRadius: height * 0.02,
-                                            backgroundColor: selectedSneaker === size ? '#181818' : '#d3d3d3'
-                                        }]} 
-                                        key={key}
-                          >
-                            <Text style={{
-                                          color: selectedSneaker === size ? '#d3d3d3' : '#181818'   }}>
+                        <Animated.View style={[{width: CIRCLE_DIMENSION,borderRadius: height * 0.02,marginHorizontal: 2,height: CIRCLE_DIMENSION}
+                                                , size == selectedSneaker && reanimatedStyle ]} key={key}>
+                          <Circle onPress={() => selecting(size)} style={[{width: CIRCLE_DIMENSION, height: CIRCLE_DIMENSION, borderRadius: height * 0.02,backgroundColor: selectedSneaker === size ? '#181818' : '#d3d3d3'}]} key={key}>
+                            <Text style={{color: selectedSneaker === size ? '#d3d3d3' : '#181818'}}>
                                 {size}
                             </Text>
                           </Circle>
