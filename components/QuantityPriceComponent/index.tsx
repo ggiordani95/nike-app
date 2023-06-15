@@ -14,7 +14,7 @@ const QuantityPriceComponent = ({price,sendDataToParent}: any) => {
   useEffect(() => {
     setCurrentPrice(price);
     setQuantityItem(1);
-
+    sendDataToParent({price: currentPrice, quantity: quantityItem})
     return () => {
       
     }
@@ -27,8 +27,6 @@ const QuantityPriceComponent = ({price,sendDataToParent}: any) => {
       }
       setQuantityItem(quantityItem + 1)
       setCurrentPrice(Math.round(currentPrice + price));
-
-
     }else{
       if(quantityItem <= 1){
         return

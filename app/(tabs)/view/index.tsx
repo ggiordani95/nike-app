@@ -19,7 +19,7 @@ import useCartStore from "../../../stores/cart";
 
 
 
-interface ISneaker {
+export interface ISneaker {
   id: number | null;
   name: string | null;
   desc: string | null;
@@ -76,7 +76,7 @@ export default function index() {
   }
 
   const cartStore = useCartStore(state => state.addToCart);
-  const atCart = useCartStore(state => state.atCart);
+
 
   return (
     <View style={{backgroundColor: "#f5f5f5",width: width,height: height,position: "relative",flex: 1,}}>
@@ -92,7 +92,7 @@ export default function index() {
           </View>
           <View style={{flex: 1,justifyContent:'center'}}>
             <SelectOption headerText="Selecione o tamanho" refresh={currentSneakerIdToFetch} sendDataToParent={handleSelectedNumber}/>
-            <QuantityPriceComponent price={sneakerData.price ? sneakerData.price : '0'} sendDataToParent={handleQuantityAndPrice}/>
+            <QuantityPriceComponent price={sneakerData.price ? sneakerData.price : '-'} sendDataToParent={handleQuantityAndPrice}/>
           </View>
           <View style={{flex: 0.4, justifyContent:'center'}}>
             <CustomButton href="/cart" onPress={()=>cartStore(sneakerData)} text={"Adicionar ao Carrinho"} background={"#161616"}/>
