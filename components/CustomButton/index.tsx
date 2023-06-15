@@ -1,15 +1,22 @@
-import { Text } from 'react-native'
+import { Text, View, useWindowDimensions } from 'react-native'
 import { ButtonPressable } from './styles'
-import { ICustomButton } from './types'
+import { ICustomLink } from './types'
 import { RFValue } from 'react-native-responsive-fontsize';
+import { Link } from 'expo-router';
 
 
-const CustomButton = ({...props}:ICustomButton) => {
+const CustomLink = ({...props}:ICustomLink) => {
+
+  const { width } = useWindowDimensions();
+
   return (
-    <ButtonPressable style={{flex: 0.8, backgroundColor: props.background}} onPress={props.onPress}> 
-      <Text style={{color: '#fafafa', fontSize: RFValue(14)}}>{props.text}</Text>
-    </ButtonPressable>
+    <Link href={props.href ? props.href : '(tabs)' } onPress={props.onPress}>
+      <View style={{width: width * 0.9,backgroundColor: props.background, flex: 1, justifyContent:"center", alignItems:'center'}} >
+        <Text style={{color: '#fafafa', fontSize: RFValue(14), textAlign:'auto'}}>{props.text}</Text>
+      </View>
+      
+    </Link>
   )
 }
 
-export default CustomButton
+export default CustomLink

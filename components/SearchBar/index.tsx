@@ -1,14 +1,15 @@
-import { SearchInput, SearchInputContainer, StyledIconRight } from "./styles";
+import { SearchInput, StyledIconRight } from "./styles";
 import { useState } from "react";
+import { View } from "react-native";
 
 export default function index() {
-
+  
    const [isInputBlur, setIsInputBlur] = useState<boolean>(true);
 
   return (
-    <SearchInputContainer>
+    <View style={{position:'relative'}}>
         {isInputBlur && <StyledIconRight size={16} name="search"/>}
         <SearchInput placeholder={isInputBlur ? 'Digite o nome de um produto...' : ''} onFocus={() => setIsInputBlur(false)} onBlur={() => setIsInputBlur(true)} />
-    </SearchInputContainer>
+    </View>
   )
 }

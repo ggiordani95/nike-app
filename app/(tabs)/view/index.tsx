@@ -95,7 +95,7 @@ export default function index() {
             <QuantityPriceComponent price={sneakerData.price ? sneakerData.price : '0'} sendDataToParent={handleQuantityAndPrice}/>
           </View>
           <View style={{flex: 0.4, justifyContent:'center'}}>
-            <CustomButton onPress={()=>cartStore(sneakerData)} text={"Adicionar ao Carrinho"} background={"#161616"}/>
+            <CustomButton href="/cart" onPress={()=>cartStore(sneakerData)} text={"Adicionar ao Carrinho"} background={"#161616"}/>
           </View>
       </Padding>
     </View>

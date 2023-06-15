@@ -1,5 +1,6 @@
-export interface ICustomButton {
+export interface ICustomLink {
     text: string;
-    onPress: () => void;
+    onPress?: () => void;
     background: string;
+    href?: any;
 }
