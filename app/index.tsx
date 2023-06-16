@@ -34,8 +34,6 @@ export default function Page() {
     function scalingLogo(){
         scale.value = withTiming(1.5,{duration:500})
     }
-
-
     
     return (
         <GestureHandlerRootView style={{flex:1, justifyContent: 'center', alignItems: 'center', backgroundColor:'#131313'}}>

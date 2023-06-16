@@ -1,5 +1,5 @@
 import { View, Text, Image, useWindowDimensions } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import useCartStore from '../../../stores/cart';
 import { FlatList } from 'react-native-gesture-handler';
 import { ISneaker } from '../view';
@@ -7,7 +7,22 @@ import { RFValue } from 'react-native-responsive-fontsize';
 
 
 export default function index() {
+  
   const atCart = useCartStore(state => state.atCart);
+  const [totalPrice,setTotalPrice] = useState<number>(0);
+
+  function totalPriceAtCart(){ 
+      let totalPrice:number =  0;
+      const total = atCart.map((item:any)=>{
+          totalPrice += (item.price * item.cart_quantity);
+      })
+      setTotalPrice(totalPrice);
+      return totalPrice
+  }
+
+  useEffect(()=>{
+    totalPriceAtCart()
+  })
 
   const [sneakerData, setSneakerData] = useState<ISneaker>({
     id: null,
@@ -37,8 +52,8 @@ export default function index() {
           </View>
       </View>
       )}
-      
       />
+      <Text>R$ {Math.round(totalPrice)}</Text>
     </View>
   )
 }
