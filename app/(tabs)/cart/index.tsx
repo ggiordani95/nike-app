@@ -30,7 +30,7 @@ export default function index() {
         <Image source={{ uri: item.image }} style={{height: 70, width:70, borderWidth:1, borderColor:'#e7e7e7', borderRadius: 14}}/>
         <View style={{flexDirection:'column', alignItems: 'flex-start',justifyContent:'flex-start', gap: 4,width: width * 0.5}}>
           <Text>{item.name}</Text>
-          <Text style={{fontWeight:'bold'}}>R$ {item.price}</Text>
+          <Text style={{fontWeight:'bold'}}>R$ {Math.round(item.cart_price * item.cart_quantity)}</Text>
         </View>
           <View style={{backgroundColor:'#eeeeee',borderRadius:12, padding: 4,paddingRight:10, height: '40%', justifyContent:"center",alignItems:'center'}}>
             <Text style={{maxWidth:180}}> {item.cart_quantity} un</Text>

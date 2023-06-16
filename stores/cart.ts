@@ -20,7 +20,7 @@ const useCartStore = create<Cart>((set)=>{
             set((state) => ({
                 atCart: state.atCart.filter((id) => id !== sneakerData),
             })),
-        updateItemCart: (sneakerId: any, newQuantity: any) =>
+        updateItemCart: (sneakerId: number, newQuantity: number, priceAdded: number) =>
             set((state) => ({
               atCart: state.atCart.map((sneaker: any) =>
                 sneaker.id == sneakerId ? { ...sneaker, cart_quantity: sneaker.cart_quantity + newQuantity} : sneaker
