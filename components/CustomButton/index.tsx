@@ -11,10 +11,10 @@ const CustomLink = ({...props}:ICustomLink) => {
 
   return (
     <Link href={props.href ? props.href : '(tabs)' } onPress={props.onPress}>
-      <View style={{width: width * 0.9,backgroundColor: props.background, flex: 1, justifyContent:"center", alignItems:'center'}} >
-        <Text style={{color: '#fafafa', fontSize: RFValue(14), textAlign:'auto'}}>{props.text}</Text>
+      <View style={{width: width * 0.9,backgroundColor: props.background,justifyContent:"center", alignItems:'center',}} >
+        <Text style={{color: '#fafafa', fontSize: RFValue(14), textAlign:'auto',padding: 20}}>{props.text}</Text>
       </View>
-      
+
     </Link>
   )
 }

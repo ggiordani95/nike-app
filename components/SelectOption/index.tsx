@@ -43,7 +43,7 @@ const SelectOption = ({...props}: ISelectOption) => {
     <SelectSection style={{flex: 1, alignItems:'center', justifyContent:'center'}}>
           <RowSpace style={{width: '100%'}}>
             <SelectionView>
-              <ViewHeaderSection style={{fontSize: RFValue(14)}}>{props.headerText}</ViewHeaderSection>
+              <ViewHeaderSection style={{fontSize: RFValue(12)}}>{props.headerText}</ViewHeaderSection>
               <CircleGroup>
                   {sneakerSizes.map((size:string, key: number)=>{
                       return(

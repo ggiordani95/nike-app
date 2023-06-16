@@ -76,7 +76,16 @@ export default function index() {
   }
 
   const cartStore = useCartStore(state => state.addToCart);
+  const atCartItems = useCartStore(state => state.atCart);
+  const updateItemCart = useCartStore(state => state.updateItemCart)
 
+  const handleCartItems  = () => {
+    if(atCartItems.some((item:any) => item.id === sneakerData.id)){
+      updateItemCart(sneakerData.id, sneakerData.cart_quantity)
+      return
+    }
+    cartStore(sneakerData)
+  }
 
   return (
     <View style={{backgroundColor: "#f5f5f5",width: width,height: height,position: "relative",flex: 1,}}>
@@ -87,15 +96,15 @@ export default function index() {
       <LikeAndCartLabel like={true} onPress={()=> ''} iconName={"cards-heart-outline"} sameRef={"cards-heart-outline"} variantIcon={'cards-heart'}  top={height * 0.06} right={width * 0.05}/>
       <Image source={sneakerData.image} style={{width: width, height: height / 2 }}/>
       <Padding>
-          <View style={{flex: 0.4,justifyContent:'center'}}>
+          <View style={{flex: 0.3,justifyContent:'center'}}>
             <SneakerName style={{fontSize:RFValue(18)}}>{sneakerData.name}</SneakerName>
           </View>
           <View style={{flex: 1,justifyContent:'center'}}>
             <SelectOption headerText="Selecione o tamanho" refresh={currentSneakerIdToFetch} sendDataToParent={handleSelectedNumber}/>
             <QuantityPriceComponent price={sneakerData.price ? sneakerData.price : '-'} sendDataToParent={handleQuantityAndPrice}/>
           </View>
-          <View style={{flex: 0.4, justifyContent:'center'}}>
-            <CustomButton href="/cart" onPress={()=>cartStore(sneakerData)} text={"Adicionar ao Carrinho"} background={"#161616"}/>
+          <View style={{flex: 0.6, justifyContent:'center'}}>
+            <CustomButton href="/cart" onPress={()=>handleCartItems()} text={"Adicionar ao Carrinho"} background={"#161616"}/>
           </View>
       </Padding>
     </View>

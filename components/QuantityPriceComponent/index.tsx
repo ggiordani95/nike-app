@@ -54,7 +54,7 @@ const QuantityPriceComponent = ({price,sendDataToParent}: any) => {
           <RowSpace style={{width: '100%'}}>
             <QuantityView>
               
-                <ViewHeaderSection>Quantidade</ViewHeaderSection>
+                <ViewHeaderSection style={{fontSize: RFValue(12)}}>Quantidade</ViewHeaderSection>
              
               <CircleGroup>
                 <Circle onPress={()=> handleQuantity(false)} style={{height: RFValue(26), width: RFValue(26)}}>

@@ -7,10 +7,9 @@ export const QuantityPriceSection = styled.View`
 
 `
 export const ViewHeaderSection = styled.Text`
-    font-size: 16px;
     font-weight: 400;
     color: #363636;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 `
 
 export const SneakerPrice = styled.Text`
@@ -27,8 +26,8 @@ export const Circle = styled.Pressable`
     border-radius: 16px;
     justify-content: center;
     align-items: center;
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
 
 `
 export const CircleGroup = styled.View`

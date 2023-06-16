@@ -24,7 +24,7 @@ export const RowSpace = styled.View`
 `
 export const Circle = styled.Pressable`
     background: #d3d3d3;
-    border-radius: 16px;
+    border-radius: 14px;
     justify-content: center;
     align-items: center;
     margin-right: 8px;

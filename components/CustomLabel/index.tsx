@@ -42,7 +42,8 @@ const CustomLabel = ({...props}: ICustomLabel) => {
           zIndex: 4,
          justifyContent:'center',
          alignItems:'center',
-         padding: 14,
+         paddingLeft: 18,
+         paddingRight: 18,
          borderRadius:30,
           backgroundColor: props.backgroundLabel
         }}
@@ -50,8 +51,8 @@ const CustomLabel = ({...props}: ICustomLabel) => {
     >
        
       <Animated.View style={[{justifyContent:"center", alignItems:'center',flexDirection:'row', gap: 6},animationStyle]}>
-        <Icon name={props.iconName} size={24} color={props.labelColor}/>
-        <Text style={{color: props.labelColor, fontSize:RFValue(12)}}>{props.labelName}</Text>
+        <Icon name={props.iconName} size={18} color={props.labelColor}/>
+        <Text style={{color: props.labelColor, fontSize:RFValue(10)}}>{props.labelName}</Text>
       </Animated.View>
       
     </Pressable>

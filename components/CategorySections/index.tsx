@@ -98,7 +98,7 @@ export default function CategorySections() {
           flexWrap: 'wrap',
           paddingVertical: 14,
         }}
-        ListFooterComponent={<View style={{ height: height * 0.3 }} />}
+        ListFooterComponent={<View style={{ height: height * 0.4 }} />}
       />
     </CategorySectionsContainer>
   )
