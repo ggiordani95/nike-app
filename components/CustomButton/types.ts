@@ -3,4 +3,5 @@ export interface ICustomLink {
     onPress?: () => void;
     background: string;
     href?: any;
+    widthButton: any;
 }

@@ -92,8 +92,8 @@ export default function index() {
       <Link href="../(tabs)" style={{position: "relative",zIndex: 4,top: height * 0.07,left: width * 0.03,width: 100}}>
         <Icon name={"chevron-left"} size={40} style={{opacity: 0.7}}/>
       </Link>
-      <LikeAndCartLabel like={false} onPress={()=> ''} iconName={"cart-outline"} top={height * 0.06} right={width * 0.20}/>
-      <LikeAndCartLabel like={true} onPress={()=> ''} iconName={"cards-heart-outline"} sameRef={"cards-heart-outline"} variantIcon={'cards-heart'}  top={height * 0.06} right={width * 0.05}/>
+      <LikeAndCartLabel containRef={true} href={'/cart'} like={false} onPress={()=> ''} iconName={"cart-outline"} top={height * 0.06} right={width * 0.20}/>
+      <LikeAndCartLabel containRef={false} like={true} onPress={() => ''} iconName={"cards-heart-outline"} sameRef={"cards-heart-outline"} variantIcon={'cards-heart'} top={height * 0.06} right={width * 0.05} href={""}/>
       <Image source={sneakerData.image} style={{width: width, height: height / 2 }}/>
       <Padding>
           <View style={{flex: 0.3,justifyContent:'center'}}>
@@ -104,7 +104,7 @@ export default function index() {
             <QuantityPriceComponent price={sneakerData.price ? sneakerData.price : '-'} sendDataToParent={handleQuantityAndPrice}/>
           </View>
           <View style={{flex: 0.6, justifyContent:'center'}}>
-            <CustomButton href="/cart" onPress={()=>handleCartItems()} text={"Adicionar ao Carrinho"} background={"#161616"}/>
+            <CustomButton href="/cart"  widthButton={width * 0.9} onPress={()=>handleCartItems()} text={"Adicionar ao Carrinho"} background={"#161616"}/>
           </View>
       </Padding>
     </View>

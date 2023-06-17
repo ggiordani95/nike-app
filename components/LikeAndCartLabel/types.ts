@@ -8,6 +8,7 @@ export interface ILabel {
     onPress: () => void;
     iconName: string;
     top?: number;
+    href?: string;
     right?: number;
     like: boolean;
     sameRef?: string;
