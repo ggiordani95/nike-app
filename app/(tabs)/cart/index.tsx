@@ -61,18 +61,12 @@ export default function index() {
         showsVerticalScrollIndicator={false}
       />
       <Padding style={{position:'absolute',bottom:0,justifyContent:'space-between', flexDirection:'row', alignItems:'center', width: '100%' }}>
-          
-        
-         
-              <View style={{flexDirection:'column', justifyContent:'center',alignItems:'center',marginLeft:4}}>
-                <Text style={{fontSize: RFValue(14), fontWeight:'bold'}}>Valor Total:</Text>
-                <Text style={{fontSize: RFValue(16)}}>R$ {Math.round(totalPrice)}</Text>
-              </View>
-              <CustomButton widthButton={'40%'} href="/cart" onPress={()=>''} text={"Finalizar Compra"} background={"#161616"}/>
-        
-          
+        <View style={{flexDirection:'column', justifyContent:'center',alignItems:'flex-start',marginLeft:4}}>
+          <Text style={{fontSize: RFValue(14), fontWeight:'bold'}}>Valor Total:</Text>
+          <Text style={{fontSize: RFValue(14)}}>R$ {Math.round(totalPrice)}</Text>
+        </View>
+        <CustomButton widthButton={'40%'} href="/cart" onPress={()=>''} text={"Finalizar Compra"} background={"#161616"}/>
       </Padding>
-      
     </View>
   )
 }

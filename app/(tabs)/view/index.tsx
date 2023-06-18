@@ -17,8 +17,6 @@ import { RFValue } from "react-native-responsive-fontsize";
 import LikeAndCartLabel from "../../../components/LikeAndCartLabel";
 import useCartStore from "../../../stores/cart";
 
-
-
 export interface ISneaker {
   id: number | null;
   name: string | null;
@@ -87,12 +85,14 @@ export default function index() {
     cartStore(sneakerData)
   }
 
+  const atCart = useCartStore(state => state.atCart);
+
   return (
     <View style={{backgroundColor: "#f5f5f5",width: width,height: height,position: "relative",flex: 1,}}>
       <Link href="../(tabs)" style={{position: "relative",zIndex: 4,top: height * 0.07,left: width * 0.03,width: 100}}>
         <Icon name={"chevron-left"} size={40} style={{opacity: 0.7}}/>
       </Link>
-      <LikeAndCartLabel containRef={true} href={'/cart'} like={false} onPress={()=> ''} iconName={"cart-outline"} top={height * 0.06} right={width * 0.20}/>
+      <LikeAndCartLabel atCartLength={atCart.length} containRef={true} href={'/cart'} like={false} onPress={()=> ''} iconName={"cart-outline"} top={height * 0.06} right={width * 0.20}/>
       <LikeAndCartLabel containRef={false} like={true} onPress={() => ''} iconName={"cards-heart-outline"} sameRef={"cards-heart-outline"} variantIcon={'cards-heart'} top={height * 0.06} right={width * 0.05} href={""}/>
       <Image source={sneakerData.image} style={{width: width, height: height / 2 }}/>
       <Padding>
@@ -101,7 +101,7 @@ export default function index() {
           </View>
           <View style={{flex: 1,justifyContent:'center'}}>
             <SelectOption headerText="Selecione o tamanho" refresh={currentSneakerIdToFetch} sendDataToParent={handleSelectedNumber}/>
-            <QuantityPriceComponent price={sneakerData.price ? sneakerData.price : '-'} sendDataToParent={handleQuantityAndPrice}/>
+            <QuantityPriceComponent price={sneakerData.price ? Math.round(sneakerData.price) : '-'} sendDataToParent={handleQuantityAndPrice}/>
           </View>
           <View style={{flex: 0.6, justifyContent:'center'}}>
             <CustomButton href="/cart"  widthButton={width * 0.9} onPress={()=>handleCartItems()} text={"Adicionar ao Carrinho"} background={"#161616"}/>
