@@ -44,7 +44,7 @@ const LikeAndCartLabel = ({ ...props }: ILabel) => {
     handleAnimation();
    
     if(props.isFav){
-      props.isFav(!isDisplayed);
+      props.isFav(isDisplayed);
     }
   };
 

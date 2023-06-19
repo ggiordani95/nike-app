@@ -93,21 +93,20 @@ export default function index() {
   const adorables = useFavoriteStore(state => state.favoriteSneakers)
   
   const handleFavItem = (isFavorite : boolean) => {
-    console.log(adorables);
-    if(!isFavorite){
+    
+    if(isFavorite){
       if(adorables.length < 1){
         return
       }
       removingAdorables(sneakerData.id);
-      console.log(adorables);
       return
     }
 
     addingAdorables(sneakerData);
-    console.log(adorables);
+ 
   }
   
-  
+  console.log(adorables);
  
   return (
     <View style={{backgroundColor: "#f5f5f5",width: width,height: height,position: "relative",flex: 1,}}>

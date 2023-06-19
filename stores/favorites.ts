@@ -16,7 +16,7 @@ return {
         })),
     removeFromAdorables: (sneakerId) =>
         set((state) => ({
-        favoriteSneakers: state.favoriteSneakers.filter((id) => id !== sneakerId),
+        favoriteSneakers: state.favoriteSneakers.filter((sneaker:any) => sneaker.id !== sneakerId),
         })),
  }
 })
