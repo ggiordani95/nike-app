@@ -42,7 +42,10 @@ const LikeAndCartLabel = ({ ...props }: ILabel) => {
 
   const callToAction = () => {
     handleAnimation();
-    props.onPress;
+   
+    if(props.isFav){
+      props.isFav(!isDisplayed);
+    }
   };
 
   const iconReferenceProps =

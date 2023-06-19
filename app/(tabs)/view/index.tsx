@@ -17,6 +17,7 @@ import { RFValue } from "react-native-responsive-fontsize";
 import LikeAndCartLabel from "../../../components/LikeAndCartLabel";
 import useCartStore from "../../../stores/cart";
 import { AllShoesData } from "../../../services/allshoes";
+import useFavoriteStore from "../../../stores/favorites";
 
 export interface ISneaker {
   id: number | null;
@@ -71,7 +72,6 @@ export default function index() {
   }
 
   const handleQuantityAndPrice = (object: any) => {
-    console.log(object);
     setSneakerData({...sneakerData, cart_price: object.price, cart_quantity: object.quantity})
   }
 
@@ -88,14 +88,34 @@ export default function index() {
   }
 
   const atCart = useCartStore(state => state.atCart);
+  const removingAdorables = useFavoriteStore(state => state.removeFromAdorables);
+  const addingAdorables = useFavoriteStore(state => state.addToAdorables);
+  const adorables = useFavoriteStore(state => state.favoriteSneakers)
+  
+  const handleFavItem = (isFavorite : boolean) => {
+    console.log(adorables);
+    if(!isFavorite){
+      if(adorables.length < 1){
+        return
+      }
+      removingAdorables(sneakerData.id);
+      console.log(adorables);
+      return
+    }
 
+    addingAdorables(sneakerData);
+    console.log(adorables);
+  }
+  
+  
+ 
   return (
     <View style={{backgroundColor: "#f5f5f5",width: width,height: height,position: "relative",flex: 1,}}>
       <Link href="../(tabs)" style={{position: "relative",zIndex: 4,top: height * 0.07,left: width * 0.03,width: 100}}>
         <Icon name={"chevron-left"} size={40} style={{opacity: 0.7}}/>
       </Link>
       <LikeAndCartLabel atCartLength={atCart.length} containRef={true} href={'/cart'} like={false}  iconName={"cart-outline"} top={height * 0.075} right={width * 0.20}/>
-      <LikeAndCartLabel onPress={()=>''} containRef={false} like={true} iconName={"cards-heart-outline"} sameRef={"cards-heart-outline"} variantIcon={'cards-heart'} top={height * 0.06} right={width * 0.05} href={""}/>
+      <LikeAndCartLabel isFav={handleFavItem} containRef={false} like={true} iconName={"cards-heart-outline"} sameRef={"cards-heart-outline"} variantIcon={'cards-heart'} top={height * 0.06} right={width * 0.05} href={""}/>
       <Image source={sneakerData.image} style={{width: width, height: height / 2 }}/>
       <Padding>
           <View style={{flex: 0.3,justifyContent:'center'}}>

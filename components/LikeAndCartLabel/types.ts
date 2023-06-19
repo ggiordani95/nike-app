@@ -5,7 +5,7 @@ export interface ICustomButton {
 }
 
 export interface ILabel {
-    onPress?: () => void;
+    isFav?: (isFavorite: boolean) => void;
     iconName: string;
     top?: number;
     containRef: boolean;

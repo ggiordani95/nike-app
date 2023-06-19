@@ -14,7 +14,6 @@ const CustomLink = ({...props}:ICustomLink) => {
       <View style={{width: props.widthButton,backgroundColor: props.background,justifyContent:"center", alignItems:'center',}} >
         <Text style={{color: '#fafafa', fontSize: RFValue(14), textAlign:'auto',padding: 20}}>{props.text}</Text>
       </View>
-
     </Link>
   )
 }

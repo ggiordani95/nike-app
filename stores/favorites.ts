@@ -1,20 +1,20 @@
 import { create } from 'zustand';
 
 interface Favorites {
-    favoriteSneakers: Array<number>;
-    addToFavorites: (sneakerId:number) => void;
-    removeFromFavorites: (sneakerId:number) => void;
+    favoriteSneakers: Array<Object>;
+    addToAdorables: (sneaker:{}) => void;
+    removeFromAdorables: (sneakerId:number | null) => void;
 } 
 
 
 const useFavoriteStore = create<Favorites>((set) => {
 return {
     favoriteSneakers: [],
-    addToFavorites: (sneakerId) =>
+    addToAdorables: (sneaker) =>
         set((state) => ({
-          favoriteSneakers: [...state.favoriteSneakers, sneakerId],
+          favoriteSneakers: [...state.favoriteSneakers, sneaker],
         })),
-    removeFromFavorites: (sneakerId) =>
+    removeFromAdorables: (sneakerId) =>
         set((state) => ({
         favoriteSneakers: state.favoriteSneakers.filter((id) => id !== sneakerId),
         })),
