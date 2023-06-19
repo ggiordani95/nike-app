@@ -4,5 +4,5 @@ export interface ICustomLabel {
     onPress?: () => void;
     labelName?: string;
     backgroundLabel: string;
-
+    href: string;
 }

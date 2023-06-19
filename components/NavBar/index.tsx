@@ -67,8 +67,8 @@ export default function index({...props}: INavBar) {
     </NavBarContainer>
     <LabelContainer style={{width: '100%', height: 100}}>
       <RowLabel>
-        <CustomLabel backgroundLabel={props.light ? '#c9c9c9' : '#191919'} labelColor={props.light ? '#131313' : '#fafafa'} iconName={'cart'} labelName="Carrinho" onPress={() => ''}/>
-        <CustomLabel backgroundLabel={props.light ? '#c9c9c9' : '#191919'} labelColor={props.light ? '#131313' : '#fafafa'} iconName={'heart'} labelName="Curtidas" onPress={() => ''}/>
+        <CustomLabel href={'/cart'} backgroundLabel={props.light ? '#c9c9c9' : '#191919'} labelColor={props.light ? '#131313' : '#fafafa'} iconName={'cart'} labelName="Carrinho" onPress={() => ''}/>
+        <CustomLabel href={'/cart'} backgroundLabel={props.light ? '#c9c9c9' : '#191919'} labelColor={props.light ? '#131313' : '#fafafa'} iconName={'heart'} labelName="Curtidas" onPress={() => ''} />
       </RowLabel>
       
     </LabelContainer>

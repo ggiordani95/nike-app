@@ -1,7 +1,7 @@
 import { TouchableOpacity, View } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import useViewStore from "../../../stores/view";
-import { AllShoesData } from "../../../services/allshoes";
+
 import { Image } from "expo-image";
 import { useWindowDimensions } from "react-native";
 import {
@@ -16,6 +16,7 @@ import SelectOption from "../../../components/SelectOption";
 import { RFValue } from "react-native-responsive-fontsize";
 import LikeAndCartLabel from "../../../components/LikeAndCartLabel";
 import useCartStore from "../../../stores/cart";
+import { AllShoesData } from "../../../services/allshoes";
 
 export interface ISneaker {
   id: number | null;

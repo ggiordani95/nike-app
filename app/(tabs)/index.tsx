@@ -28,9 +28,7 @@ export default function Dashboard() {
         <GlobalContainer>
           <NavBar light={theme ? false : true}/>
           <CategorySections/>
-         
         </GlobalContainer>
-        
       </ThemeProvider>
   );
 }
