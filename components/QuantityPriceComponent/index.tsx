@@ -27,15 +27,16 @@ const QuantityPriceComponent = ({price,sendDataToParent}: any) => {
       }
       setQuantityItem(quantityItem + 1)
       setCurrentPrice(Math.round(currentPrice + price));
+      sendDataToParent({price: currentPrice + price, quantity: quantityItem + 1})
     }else{
       if(quantityItem <= 1){
         return
       }
       setQuantityItem(quantityItem - 1)
       setCurrentPrice(Math.round(currentPrice - price));
-     
+      sendDataToParent({price: currentPrice - price, quantity: quantityItem - 1})
     }
-    sendDataToParent({price: currentPrice + price, quantity: quantityItem + 1})
+    
     scaleValue.value = withSpring(1.2,{}, () => {
       scaleValue.value = withSpring(1);
     })

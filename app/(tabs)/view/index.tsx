@@ -71,6 +71,7 @@ export default function index() {
   }
 
   const handleQuantityAndPrice = (object: any) => {
+    console.log(object);
     setSneakerData({...sneakerData, cart_price: object.price, cart_quantity: object.quantity})
   }
 
