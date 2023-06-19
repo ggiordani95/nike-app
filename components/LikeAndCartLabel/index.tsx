@@ -65,13 +65,7 @@ const LikeAndCartLabel = ({ ...props }: ILabel) => {
           onPress={callToAction}
         >
         
-          <Pressable
-            style={{
-              padding: 10,
-              borderRadius: 40,
-              zIndex: 4,
-            }}
-          >
+          
             
             <Animated.View style={[animationStyle]}>
               <View style={{position: 'absolute',backgroundColor:'#242424', borderRadius: 10, height:24, width: 24, zIndex:10,left: 20,bottom: 20, justifyContent:"center",alignItems:'center'}}>
@@ -83,7 +77,7 @@ const LikeAndCartLabel = ({ ...props }: ILabel) => {
                 color={props.like && isDisplayed ? "red" : "#242424"}
               />
             </Animated.View>
-          </Pressable>
+         
         </Link>
       ) : (
         <Pressable
