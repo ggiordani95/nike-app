@@ -1,5 +1,5 @@
 import { Pressable, Text, View, useWindowDimensions } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -39,6 +39,7 @@ const LikeAndCartLabel = ({ ...props }: ILabel) => {
     });
     setIsDisplayed(false);
   };
+
 
   const callToAction = () => {
     handleAnimation();

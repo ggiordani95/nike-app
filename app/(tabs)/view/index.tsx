@@ -33,6 +33,7 @@ export interface ISneaker {
 export default function index() {
   const { currentSneakerIdToFetch } = useViewStore();
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isFavorite, setIsFavorite]= useState<boolean>(false);
   const [sneakerData, setSneakerData] = useState<ISneaker>({
     id: null,
     name: null,
@@ -43,6 +44,11 @@ export default function index() {
     cart_price: null,
     cart_quantity: 1,
   });
+  const atCart = useCartStore(state => state.atCart);
+  const removingAdorables = useFavoriteStore(state => state.removeFromAdorables);
+  const addingAdorables = useFavoriteStore(state => state.addToAdorables);
+  const adorables = useFavoriteStore(state => state.favoriteSneakers);
+  const isFav = adorables.some((sneaker:any)=> sneaker.id == sneakerData.id);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,6 +60,9 @@ export default function index() {
             currentSneakerIdToFetch
           );
           setSneakerData(fetchedSneakerData);
+          setIsFavorite(isFav)
+          console.log(isFav);
+          
         }
       } catch (error) {
         console.log(error);
@@ -63,6 +72,8 @@ export default function index() {
     };
     fetchData();
   }, [currentSneakerIdToFetch]);
+
+  
 
   const { width, height } = useWindowDimensions();
 
@@ -86,11 +97,6 @@ export default function index() {
     }
     cartStore(sneakerData)
   }
-
-  const atCart = useCartStore(state => state.atCart);
-  const removingAdorables = useFavoriteStore(state => state.removeFromAdorables);
-  const addingAdorables = useFavoriteStore(state => state.addToAdorables);
-  const adorables = useFavoriteStore(state => state.favoriteSneakers)
   
   const handleFavItem = (isFavorite : boolean) => {
     
@@ -114,7 +120,7 @@ export default function index() {
         <Icon name={"chevron-left"} size={40} style={{opacity: 0.7}}/>
       </Link>
       <LikeAndCartLabel atCartLength={atCart.length} containRef={true} href={'/cart'} like={false}  iconName={"cart-outline"} top={height * 0.075} right={width * 0.20}/>
-      <LikeAndCartLabel isFav={handleFavItem} containRef={false} like={true} iconName={"cards-heart-outline"} sameRef={"cards-heart-outline"} variantIcon={'cards-heart'} top={height * 0.06} right={width * 0.05} href={""}/>
+      <LikeAndCartLabel isFav={handleFavItem} containRef={false} like={true} iconName={"cards-heart-outline"} sameRef={"cards-heart-outline"} variantIcon={'cards-heart'} top={height * 0.06} right={width * 0.05} href={'/adorables'}/>
       <Image source={sneakerData.image} style={{width: width, height: height / 2 }}/>
       <Padding>
           <View style={{flex: 0.3,justifyContent:'center'}}>
