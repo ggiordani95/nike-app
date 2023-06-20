@@ -63,16 +63,13 @@ const LikeAndCartLabel = ({ ...props }: ILabel) => {
             position: "absolute",
             top: props.top,
             right: props.right,
-            zIndex: 10,
+            zIndex: 9,
             backgroundColor: "transparent",
           }}
           onPress={callToAction}
         >
-        
-          
-            
-            <Animated.View style={[animationStyle]}>
-              <View style={{position: 'absolute',backgroundColor:'#242424', borderRadius: 10, height:24, width: 24, zIndex:10,left: 20,bottom: 20, justifyContent:"center",alignItems:'center'}}>
+            <Animated.View style={[animationStyle,{zIndex:9}]}>
+              <View style={{position: 'absolute',backgroundColor:'#242424', borderRadius: 10, height:24, width: 24, zIndex:14,left: 20,bottom: 20, justifyContent:"center",alignItems:'center'}}>
                 <Text style={{alignSelf:'center',color:'#fafafa', fontSize: RFValue(12)}}>{props.atCartLength}</Text>
               </View>  
               <Icon
@@ -91,12 +88,12 @@ const LikeAndCartLabel = ({ ...props }: ILabel) => {
             right: props.right,
             padding: 10,
             borderRadius: 40,
-            zIndex: 4,
+            zIndex: 12,
             backgroundColor: "transparent",
           }}
           onPress={callToAction}
         >
-          <Animated.View style={[animationStyle]}>
+          <Animated.View style={[animationStyle,{zIndex:9}]}>
             <Icon
               name={iconReferenceProps ? iconReferenceProps : ""}
               size={32}
