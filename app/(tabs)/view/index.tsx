@@ -74,7 +74,6 @@ export default function index() {
 
   useEffect(() => {
     const isFav = adorables.find((sneaker: any) => sneaker.id === sneakerData.id);
-    console.log(isFav, sneakerData.id)
     setIsFavorite(!!isFav);
   }, [adorables, sneakerData.id]);
   
