@@ -12,7 +12,11 @@ import { Link } from "expo-router";
 import { RFValue } from "react-native-responsive-fontsize";
 
 const LikeAndCartLabel = ({ ...props }: ILabel) => {
-  const [isDisplayed, setIsDisplayed] = useState<boolean>(false);
+  const [isDisplayed, setIsDisplayed] = useState<boolean>(props.isFavorite);
+
+  useEffect(() => {
+    setIsDisplayed(props.isFavorite)
+  },[props.isFavorite])
 
   const opacity = useSharedValue(1);
   const zoom = useSharedValue(1);
