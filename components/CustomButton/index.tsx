@@ -1,9 +1,8 @@
-import { ActivityIndicator, Text, View, useWindowDimensions } from 'react-native'
-import { ButtonPressable } from './styles'
+import { ActivityIndicator, Text, View } from 'react-native'
 import { ICustomLink } from './types'
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Link } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
 
@@ -36,7 +35,8 @@ const CustomLink = ({...props}:ICustomLink) => {
          <Text style={{color: '#fafafa', fontSize: RFValue(14), textAlign:'auto',padding: 20}}>{props.text}</Text>
         </Animated.View>
         { isLoading &&
-        <ActivityIndicator style={{position:'absolute'}}/>}
+          <ActivityIndicator style={{position:'absolute'}}/>
+        }
       </View>
     </Link>
   )
