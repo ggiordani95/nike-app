@@ -72,7 +72,7 @@ export default function index() {
           <Text style={{fontSize: RFValue(14)}}>Valor Total:</Text>
           <Text style={{fontSize: RFValue(18),fontWeight: '500'}}>R$ {Math.round(totalPrice)}</Text>
         </View>
-        <CustomButton widthButton={'100%'} href="/cart" onPress={()=>''} text={"Finalizar Compra"} background={"#161616"}/>
+        <CustomButton cart={true} widthButton={'100%'} href="/cart" onPress={()=>''} text={"Finalizar Compra"} background={"#161616"}/>
       </Padding>
     </View>
   )

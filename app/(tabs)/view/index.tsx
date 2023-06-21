@@ -133,7 +133,7 @@ export default function index() {
             <QuantityPriceComponent price={sneakerData.price ? Math.round(sneakerData.price) : '-'} sendDataToParent={handleQuantityAndPrice}/>
           </View>
           <View style={{flex: 0.6, justifyContent:'center'}}>
-            <CustomButton href="/cart"  widthButton={width * 0.9} onPress={()=>handleCartItems()} text={"Adicionar ao Carrinho"} background={"#161616"}/>
+            <CustomButton cart={false} href="/cart"  widthButton={width * 0.9} onPress={handleCartItems} text={"Adicionar ao Carrinho"} background={"#161616"}/>
           </View>
       </Padding>
     </View>

@@ -4,4 +4,5 @@ export interface ICustomLink {
     background: string;
     href?: any;
     widthButton: any;
+    cart: any;
 }
