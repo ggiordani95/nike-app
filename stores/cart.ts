@@ -3,6 +3,7 @@ interface Cart {
     atCart: Array<Object>;
     addToCart: (sneakerData:{}) => void;
     removeFromCart: (sneakerData:{}) => void;
+    removeAllItems: () => void;
     updateItemCart: any;
     specificItemId: number;
 } 
@@ -26,6 +27,7 @@ const useCartStore = create<Cart>((set)=>{
                 sneaker.id == sneakerId ? { ...sneaker, cart_quantity: sneaker.cart_quantity + newQuantity} : sneaker
               ),
         })),
+        removeAllItems: () => set((state)=>({ atCart: []}))
             
      }
 })

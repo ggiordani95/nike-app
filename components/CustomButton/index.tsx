@@ -18,18 +18,23 @@ const CustomLink = ({...props}:ICustomLink) => {
     }
   })
 
-  const onPressingButton = () => {
+  function onPressing () {
+    
     setIsLoading(true);
     opacity.value = withTiming(0,{duration: 200})
     setTimeout(()=>{
-      props.onPress;
+      if (props.onPress) {
+        props.onPress();
+      }
       setIsLoading(false);
       opacity.value = withTiming(1,{duration: 200})
     },800)
+
+    
   }
 
   return (
-    <Link href={props.href ? props.href : '(tabs)' } onPress={props.cart ? onPressingButton : props.onPress}>
+    <Link href={props.href ? props.href : '(tabs)' } onPress={props.cart ? onPressing : props.onPress}>
       <View style={{width: props.widthButton,backgroundColor: props.background,justifyContent:"center", alignItems:'center',}} >
         <Animated.View style={[textButtonStyle]}>
          <Text style={{color: '#fafafa', fontSize: RFValue(14), textAlign:'auto',padding: 20}}>{props.text}</Text>

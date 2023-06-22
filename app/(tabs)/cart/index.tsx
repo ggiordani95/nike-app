@@ -9,10 +9,14 @@ import CustomButton from '../../../components/CustomButton';
 import { Padding } from '../view/styles';
 import { useRouter } from 'expo-router';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import finished from '../../../assets/concluido.png'
+
 
 export default function index() {
-  
+
   const atCart = useCartStore(state => state.atCart);
+  const removeAllAtCart = useCartStore(state => state.removeAllItems)
   const [totalPrice,setTotalPrice] = useState<number>(0);
 
   function totalPriceAtCart(){ 
@@ -28,6 +32,45 @@ export default function index() {
     totalPriceAtCart()
   })
 
+  const {height, width} = useWindowDimensions();
+
+  const BOTTOM_SHEET_HEIGHT = (height / 2.5);
+
+  const bottomSheetShared = useSharedValue(BOTTOM_SHEET_HEIGHT)
+
+  const bottomSheetStyle = useAnimatedStyle(()=>{
+    return {
+        transform: [{translateY: bottomSheetShared.value}]
+    }
+  })
+
+  function openDrawerBuy() {
+    zIndexBlur.value = 1
+    opacityBlur.value = withTiming(1, {duration: 1000})
+    bottomSheetShared.value = withTiming(0, {duration: 1000})
+   
+  }
+  function closeDrawerBuy() {
+    setTimeout(()=>{
+      router.push('/(tabs)')
+      removeAllAtCart()
+    },500)
+    
+    zIndexBlur.value = -3
+    opacityBlur.value = 0
+    bottomSheetShared.value = withTiming(BOTTOM_SHEET_HEIGHT, {duration: 1000})
+  }
+
+  const zIndexBlur = useSharedValue(-3)
+  const opacityBlur = useSharedValue(0)
+
+  const backgroundBlurStyle = useAnimatedStyle(()=>{
+    return {
+        zIndex: zIndexBlur.value,
+        opacity: opacityBlur.value
+    }
+  })
+
   const [sneakerData, setSneakerData] = useState<ISneaker>({
     id: null,
     name: null,
@@ -39,13 +82,19 @@ export default function index() {
     cart_quantity: 0,
   });
   
-
-  const {height, width} = useWindowDimensions();
-
   const router = useRouter();
 
   return (
     <View style={{flex: 1, alignItems:'center', backgroundColor:'#f3f3f3', position:'relative'}}>
+      <Animated.View style={[{position:'absolute', bottom:0, width: width, height:BOTTOM_SHEET_HEIGHT, backgroundColor:'#131313',zIndex:8, borderTopRightRadius: 14, borderTopLeftRadius:14,justifyContent:'center',alignItems:'center', borderColor:'#0f0f0f', borderTopWidth:1},bottomSheetStyle]}>
+        <View style={{justifyContent:'center',alignItems:'center', gap:24}}>
+          <Image source={finished} style={{height:60, width: 60}}/>
+          <Text style={{fontSize:RFValue(18), fontWeight: '500', color: '#d3d3d3'}}>Compra Realizada com Sucesso!</Text>
+        </View>
+      </Animated.View>
+      <Animated.View style={[backgroundBlurStyle,{ backgroundColor:'#131313be', height:'100%', width: '100%', position:`absolute`,}]}>
+        <Pressable onPress={closeDrawerBuy} style={{height:'100%',width:'100%'}}></Pressable>
+      </Animated.View>
       <View style={{height: height / 6, width: width,backgroundColor:'#131313', justifyContent:"center",alignItems:'center'}}>
         <Pressable onPress={() => router.back()} style={{position: "absolute",zIndex: 4,top: height * 0.07,left: width * 0.03,width: 100}}>
           <Icon name={"chevron-left"} size={40} style={{opacity: 0.7}} color="#d3d3d3"/>
@@ -72,7 +121,7 @@ export default function index() {
           <Text style={{fontSize: RFValue(14)}}>Valor Total:</Text>
           <Text style={{fontSize: RFValue(18),fontWeight: '500'}}>R$ {Math.round(totalPrice)}</Text>
         </View>
-        <CustomButton cart={true} widthButton={'100%'} href="/cart" onPress={()=>''} text={"Finalizar Compra"} background={"#161616"}/>
+          <CustomButton onPress={openDrawerBuy} cart={true} widthButton={'100%'} href="/cart"  text={"Finalizar Compra"} background={"#161616"}/>
       </Padding>
     </View>
   )

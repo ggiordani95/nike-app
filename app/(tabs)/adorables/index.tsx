@@ -23,13 +23,13 @@ export default function index() {
         <Image source={logo} style={{height: 45, width: 45, top: 10}}/>
       </View>
       <FlatList data={atFavorites} renderItem={({item,index}:any)=>(
-        <Link href="/" style={{flexDirection:'row',height:height / 6, width: width * 0.9, justifyContent:'flex-start',alignItems:'center', backgroundColor:'#f3f3f3',marginVertical:12}} key={index}>
-          <Image source={{ uri: item.image }} style={{height:height / 9, width:width * 0.2, borderWidth:1, borderColor:'#e7e7e7', borderRadius: 14}}/>
-          <View style={{flexDirection:'column', alignItems: 'flex-start',justifyContent:'center', gap: 4,paddingLeft:14,width: width * 0.6, height:'100%'}}>
-            <Text style={{fontSize:RFValue(12),fontWeight:'500'}}>{item.name}</Text>
-           
+        <Link href="/" key={index}>
+          <View style={{flexDirection:'row',justifyContent:'flex-start',alignItems:'center',backgroundColor:'#f3f3f3', width:width * 0.9, gap:8, height: height / 7}}>
+            <Image source={{ uri: item.image }} style={{height:70, width:70,borderRadius: 14, borderWidth:1, borderColor:'#d3d3d3'}}/>
+            
+            <Text style={{fontSize:RFValue(12), marginLeft:14}}>{item.name}</Text>
           </View>
-           
+          
         </Link>
         )}
         ListFooterComponent={<View style={{height: height * 0.2}}></View>}
