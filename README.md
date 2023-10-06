@@ -1,10 +1,10 @@
 # Nike E-commerce Application with React Native
 
-This is my project for improving soft skills,
-to start the project you can type on cmd:
+Fiz o aplicativo para estudo pessoal,
+Para iniciar o projeto utilize os comandos no terminal:
 
 - npm install
 
 - npx expo start
 
-NODE.JS is required to open the project!
+Node.js deve ser instalado para rodar o projeto
