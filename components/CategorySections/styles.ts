@@ -15,7 +15,7 @@ export const SectionText = styled.Text`
     margin: 14px;
     padding: 6px;
     font-size: 13px;
-    color: ${({theme}) => theme.COLORS.TEXT_SECONDARY};
+    color: ${({theme}:any) => theme.COLORS.TEXT_SECONDARY};
     font-weight: 400;
 `
 

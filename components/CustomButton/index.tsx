@@ -1,50 +1,67 @@
-import { ActivityIndicator, Text, View } from 'react-native'
-import { ICustomLink } from './types'
-import { RFValue } from 'react-native-responsive-fontsize';
-import { Link } from 'expo-router';
-import { useState } from 'react';
-import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import { ActivityIndicator, Text, View } from "react-native";
+import { ICustomLink } from "./types";
+import { RFValue } from "react-native-responsive-fontsize";
+import { Link } from "expo-router";
+import { useState } from "react";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
+import React from "react";
 
-
-const CustomLink = ({...props}:ICustomLink) => {
-
+const CustomLink = ({ ...props }: ICustomLink) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const opacity = useSharedValue(1);
 
   const textButtonStyle = useAnimatedStyle(() => {
     return {
-        opacity: opacity.value
-    }
-  })
+      opacity: opacity.value,
+    };
+  });
 
-  function onPressing () {
-    
+  function onPressing() {
     setIsLoading(true);
-    opacity.value = withTiming(0,{duration: 200})
-    setTimeout(()=>{
+    opacity.value = withTiming(0, { duration: 200 });
+    setTimeout(() => {
       if (props.onPress) {
         props.onPress();
       }
       setIsLoading(false);
-      opacity.value = withTiming(1,{duration: 200})
-    },800)
-
-    
+      opacity.value = withTiming(1, { duration: 200 });
+    }, 800);
   }
 
   return (
-    <Link href={props.href ? props.href : '(tabs)' } onPress={props.cart ? onPressing : props.onPress}>
-      <View style={{width: props.widthButton,backgroundColor: props.background,justifyContent:"center", alignItems:'center',}} >
+    <Link
+      href={props.href ? props.href : "(tabs)"}
+      onPress={props.cart ? onPressing : props.onPress}
+    >
+      <View
+        style={{
+          width: props.widthButton,
+          backgroundColor: props.background,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Animated.View style={[textButtonStyle]}>
-         <Text style={{color: '#fafafa', fontSize: RFValue(14), textAlign:'auto',padding: 20}}>{props.text}</Text>
+          <Text
+            style={{
+              color: "#fafafa",
+              fontSize: RFValue(14),
+              textAlign: "auto",
+              padding: 20,
+            }}
+          >
+            {props.text}
+          </Text>
         </Animated.View>
-        { isLoading &&
-          <ActivityIndicator style={{position:'absolute'}}/>
-        }
+        {isLoading && <ActivityIndicator style={{ position: "absolute" }} />}
       </View>
     </Link>
-  )
-}
+  );
+};
 
-export default CustomLink
+export default CustomLink;
