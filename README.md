@@ -10,6 +10,7 @@ Para iniciar o projeto utilize os comandos no terminal:
 Node.js deve ser instalado para rodar o projeto
 
 
+![nikeapp](https://github.com/ggiordani95/nike-app/assets/94162641/5f4c9221-6764-40fb-9597-be1111e5f647)
 
 ![Screenshot_3](https://github.com/ggiordani95/nike-app/assets/94162641/56a5abe5-e99a-4c00-bbc7-22b1daae216a)
 
