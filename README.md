@@ -1,4 +1,4 @@
-# E-commerce da Nike feito em React Native
+# E-commerce da Nike feito em React Native (expo)
 
 Fiz o aplicativo para estudo pessoal,
 Para iniciar o projeto utilize os comandos no terminal:
