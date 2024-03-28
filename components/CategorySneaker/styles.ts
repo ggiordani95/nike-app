@@ -1,7 +1,5 @@
 import styled from 'styled-components/native'
 
-
-
 export const CategoryTextView = styled.View`
     position: absolute;
     justify-content: center;

@@ -8,7 +8,7 @@ import {
 import React, { useEffect, useState } from "react";
 import useCartStore from "../../../stores/cart";
 import { FlatList } from "react-native-gesture-handler";
-import { ISneaker } from "../view";
+import { ISneaker } from "../../../screens/product/types";
 import { RFValue } from "react-native-responsive-fontsize";
 import CustomButton from "../../../components/CustomButton";
 import { Padding } from "../view/styles";
@@ -18,9 +18,9 @@ import Animated, {
   AnimatedStyleProp,
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
   withTiming,
 } from "react-native-reanimated";
+import { StatusBar } from "expo-status-bar";
 
 export default function index() {
   const atCart = useCartStore((state) => state.atCart);
@@ -29,7 +29,7 @@ export default function index() {
 
   function totalPriceAtCart() {
     let totalPrice: number = 0;
-    const total = atCart.map((item: any) => {
+    atCart.map((item: any) => {
       totalPrice += item.price * item.cart_quantity;
     });
     setTotalPrice(totalPrice);
@@ -102,6 +102,7 @@ export default function index() {
         position: "relative",
       }}
     >
+      <StatusBar style={"light"} />
       <Animated.View
         style={[
           {

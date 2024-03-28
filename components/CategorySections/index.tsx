@@ -87,7 +87,7 @@ export default function CategorySections() {
     <CategorySectionsContainer>
       <FlatListCategories
         data={categoryNames}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(item: any, index: number) => index.toString()}
         renderItem={({ item, index }: any) => (
           <SectionTextComponent
             item={item}

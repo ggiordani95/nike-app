@@ -1,7 +1,5 @@
-import { CategoryTextView, ProductTextName } from "./styles";
 import { Image } from "expo-image";
 import { useWindowDimensions } from "react-native";
-import React from "react";
 import { CategorySneakerView } from "./types";
 import useViewStore from "../../stores/view";
 import { Link } from "expo-router";

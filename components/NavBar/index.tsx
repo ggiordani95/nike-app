@@ -22,6 +22,7 @@ import {
 } from "react-native-reanimated";
 import CustomLabel from "../CustomLabel";
 import React from "react";
+import { StatusBar } from "expo-status-bar";
 
 export default function index({ ...props }: INavBar) {
   const [isThemeDark, setIsThemeDark] = useState<boolean>(true);
@@ -55,6 +56,7 @@ export default function index({ ...props }: INavBar) {
   return (
     <>
       <NavBarContainer>
+        <StatusBar style={isThemeDark ? "light" : "dark"} />
         <RowBetween>
           <CenteredRowView>
             <ProfileImage

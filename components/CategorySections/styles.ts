@@ -1,14 +1,10 @@
 import styled from 'styled-components/native'
 
-
 export const CategorySectionsContainer = styled.View`
     margin-left: 0px;
-    
     padding-bottom: 10px;
     justify-content: center;
     align-items: center;
-    
-    
 `
 
 export const SectionText = styled.Text`
