@@ -1,12 +1,15 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { AllShoesData } from "../allshoes";
-import { ISneaker } from "../../screens/product/types";
 
 type useFetchSneakerDataProps<T> = {
   setIsLoading: (value: boolean) => void;
   currentSneakerIdToFetch: number | null;
-  setSneakerData: Dispatch<SetStateAction<ISneaker>>;
+  setSneakerData: Dispatch<SetStateAction<T>>;
 };
+
+function isValidSneakerData(data: unknown) {
+  return typeof data === "object" && data !== null && "property" in data;
+}
 
 function useFetchSneakerData<T>({
   setIsLoading,
@@ -18,12 +21,16 @@ function useFetchSneakerData<T>({
       setIsLoading(true);
       try {
         if (currentSneakerIdToFetch) {
-          const fetchedSneakerData: any = await AllShoesData(
+          const fetchedSneakerData: unknown = await AllShoesData(
             true,
             currentSneakerIdToFetch
           );
+          if (isValidSneakerData(fetchedSneakerData)) {
+            setSneakerData(fetchedSneakerData as T);
+          } else {
+            console.error("Dados inválidos do sneaker");
+          }
           console.log(fetchedSneakerData);
-          setSneakerData(fetchedSneakerData);
         }
       } catch (error) {
         console.log(error);
