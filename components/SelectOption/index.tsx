@@ -7,7 +7,7 @@ import {
   SelectionView,
   ViewHeaderSection,
 } from "./styles";
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { RFValue } from "react-native-responsive-fontsize";
 import Animated, {
   AnimatedStyleProp,
@@ -20,7 +20,7 @@ import React from "react";
 interface ISelectOption {
   headerText: string;
   refresh: number | null;
-  sendDataToParent: any;
+  sendDataToParent: (number: SetStateAction<string | null>) => void;
 }
 
 const SelectOption = ({ ...props }: ISelectOption) => {
@@ -45,7 +45,7 @@ const SelectOption = ({ ...props }: ISelectOption) => {
     setSelectedSneaker(sneakerSizes[0]);
   }, [props.refresh]);
 
-  const selecting = (sizeSelected: any) => {
+  const selecting = (sizeSelected: SetStateAction<string | null>) => {
     setSelectedSneaker(sizeSelected);
     props.sendDataToParent(sizeSelected);
     scaleValue.value = withSpring(0.8, {}, () => {

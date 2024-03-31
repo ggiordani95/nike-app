@@ -1,9 +1,20 @@
 import { useEffect } from "react";
+import { ISneaker } from "../../screens/product/types";
 
-function useProductIsFavorite({ adorables, sneakerData, setIsFavorite }: any) {
+interface Props {
+  adorables: Array<any>;
+  sneakerData: ISneaker;
+  setIsFavorite: (isFavorite: boolean) => void;
+}
+
+function useProductIsFavorite({
+  adorables,
+  sneakerData,
+  setIsFavorite,
+}: Props) {
   useEffect(() => {
     const isFav = adorables.find(
-      (sneaker: any) => sneaker.id === sneakerData.id
+      (sneaker: ISneaker) => sneaker.id === sneakerData.id
     );
     setIsFavorite(!!isFav);
   }, [adorables, sneakerData.id]);

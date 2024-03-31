@@ -5,7 +5,7 @@ interface ICart {
     addToCart: (sneakerData:{}) => void;
     removeFromCart: (sneakerData:{}) => void;
     removeAllItems: () => void;
-    updateItemCart: any;
+    updateItemCart: (sneakerId: number, newQuantity: number, priceAdded: number) => void
     specificItemId: number;
 } 
 
